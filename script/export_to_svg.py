@@ -57,8 +57,6 @@ class SvgCustomizer:
   def execute(self, glyph, file):
     '''
     FontForge が書き出した SVG ファイルを解析し、目的の形式に書き換えます。
-    書き換えたファイルのファイル名は、元の SVG ファイルの
-    末尾に '~' をつけたものになります。
 
     引数：
       glyph -- FontForge のもつグリフオブジェクト
@@ -66,8 +64,6 @@ class SvgCustomizer:
 
     Parses the SVG file that is output by FontForge, and outputs a new 
     SVG file that can be displayed by a web browser.
-    The new file has a name which is equal to the original file name 
-    added '~' letter at the end.
 
     Arguments:
       glyph -- glyph object
@@ -75,24 +71,30 @@ class SvgCustomizer:
     '''
     self.setup(glyph)
     try:
-      self.out = open(file + '~', 'w')
-      fh = open(file, 'r')
-      self.parser.ParseFile(fh)
+      c = self.get_contents(file)
+      self.out = open(file, 'w')
+      self.parser.Parse(c, 1)
     except:
       print sys.exc_info()[0]
-    fh.close()
     self.out.close()
 
   def setup(self, glyph):
     '''内部にもつ XML パーサーのセットアップを行います。'''
     self.glyph = glyph
     self.parser = xml.parsers.expat.ParserCreate()
-    self.parser.XmlDeclHandler = self.startXmlDeclaration
-    self.parser.StartDoctypeDeclHandler = self.startDoctypeDeclaration
-    self.parser.StartElementHandler = self.startElement
-    self.parser.EndElementHandler = self.endElement
+    self.parser.XmlDeclHandler = self.start_xml_declaration
+    self.parser.StartDoctypeDeclHandler = self.start_doctype_declaration
+    self.parser.StartElementHandler = self.start_element
+    self.parser.EndElementHandler = self.end_element
 
-  def startXmlDeclaration(self, version, encoding, standalone):
+  def get_contents(self, file):
+    '''指定したファイルの内容を読み込んで返します。'''
+    h = open(file, 'r')
+    c = h.read()
+    h.close()
+    return c
+
+  def start_xml_declaration(self, version, encoding, standalone):
     '''XML 宣言部分のパースと書き出しを行います。'''
     self.out.write('<?xml')
     if version:
@@ -104,26 +106,26 @@ class SvgCustomizer:
       self.out.write(' standalone="%s"' % val)
     self.out.write('?>')
 
-  def startDoctypeDeclaration(self, doctype, sysId, pubId, hasSubset):
+  def start_doctype_declaration(self, doctype, sys_id, pub_id, has_subset):
     '''DOCTYPE 部分のパースと書き出しを行います。'''
     self.out.write('<!DOCTYPE %s' % doctype)
-    if pubId:
-      self.out.write(' PUBLIC "%s"' % pubId)
-    if sysId:
-      self.out.write(' "%s"' % sysId)
+    if pub_id:
+      self.out.write(' PUBLIC "%s"' % pub_id)
+    if sys_id:
+      self.out.write(' "%s"' % sys_id)
     self.out.write('>')
     if self.with_comment:
       self.out.write('<!-- %s -->' % COPYRIGHT)
 
-  def startElement(self, name, attrs):
+  def start_element(self, name, attrs):
     '''各要素の開始部分を読み込み、その部分の書き出しを行います。'''
     self.out.write('<%s' % name)
-    isSvg = name == 'svg'
-    isPath = name == 'path'
-    if isSvg:
+    is_svg = name == 'svg'
+    is_path = name == 'path'
+    if is_svg:
       self.out.write(' xmlns="http://www.w3.org/2000/svg"')
     for k in attrs.keys():
-      if isSvg and k == 'viewBox':
+      if is_svg and k == 'viewBox':
         org = attrs[k].split()
         w = self.glyph.width - int(org[0])
         # here, using magic numbers at the values of top and height.
@@ -131,13 +133,13 @@ class SvgCustomizer:
         # you might have to change these values.
         val = '%s -100 %d 1200' % (org[0], w)
         self.out.write(' %s="%s"' % (k, val))
-      elif isPath and k == 'fill':
+      elif is_path and k == 'fill':
         self.out.write(' %s="%s"' % (k, self.fill_color))
       else:
         self.out.write(' %s="%s"' % (k, attrs[k]))
     self.out.write('>')
 
-  def endElement(self, name):
+  def end_element(self, name):
     '''各要素の終了部分を読み込み、その部分の書き出しを行います。'''
     self.out.write('</%s>' % name)
 
@@ -150,16 +152,22 @@ def make_svg(glyph, filename, customizer):
 
   まず FontForge の export 機能で SVG ファイルを生成し、次いで SvgCustomizer で
   その内容を書き換えます。
-  SVGCustomizer は末尾に '~' の付いたファイルを出力するので、最後にファイル名を
-  書き換えます。
 
-  Exporting SVG file of the specified glyph, and outputing new displayable one.
+  引数：
+    glyph      -- 書き出す対象のグリフオブジェクト
+    filename   -- FontForge が書き出す SVG ファイルの名前
+    customizer -- SvgCustomizer のインスタンス
+
+  Exports a SVG file from the specified glyph, and outputs new displayable one.
+
+  Arguments:
+    glyph      -- target glyph object
+    filename   -- file name of the SVG file that will be output by FontForge
+    customizer -- an instance of SvgCustomizer
   '''
   glyph.export(filename, 1)
   customizer.execute(glyph, filename)
-  
-  os.remove(filename)
-  os.rename('%s~' % filename, filename)
+
 
 if __name__ == '__main__':
 
@@ -179,6 +187,18 @@ if __name__ == '__main__':
             省略すると、black が指定されたことになります。
      -c, --comment :
             コピーライトコメントを付ける場合に指定します。
+
+    Processes the arguments of command line.
+    The first of them is font file path, and the second of them is path of
+    directory in which the svg files will be stored.
+    The options are like this:
+
+     -f, --fill:
+            The color name with which fill the svg pathes.
+            Default is 'black.'
+     -c, --comment:
+            When this option is specified, the copyright is written as comment
+            in each svg files.
     '''
     usage = 'usage: %prog [-f color] [-c] fontfile directory'
     p = optparse.OptionParser(usage=usage)
@@ -186,11 +206,11 @@ if __name__ == '__main__':
                  help='name of color that is used when filling the svg pathes')
     p.add_option('-c', '--comment', dest='comment', 
                  action='store_true', default=False,
-                 help='write mshio\'s copyright as comment in each output file')
+                 help="write mshio's copyright as comment in each output files")
     (opt, args) = p.parse_args()
 
     if len(args) != 2:
-      p.error("incorrect number of arguments")
+      p.error('incorrect number of arguments')
       raise InvalidArgumentError
 
     return (args[0], args[1], opt.color, opt.comment)
