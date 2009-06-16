@@ -143,31 +143,6 @@ class SvgCustomizer:
     '''各要素の終了部分を読み込み、その部分の書き出しを行います。'''
     self.out.write('</%s>' % name)
 
-# --------------------------------------------
-# function
-# --------------------------------------------
-def make_svg(glyph, filename, customizer):
-  '''
-  SVG ファイルの生成と書き換えを行います。
-
-  まず FontForge の export 機能で SVG ファイルを生成し、次いで SvgCustomizer で
-  その内容を書き換えます。
-
-  引数：
-    glyph      -- 書き出す対象のグリフオブジェクト
-    filename   -- FontForge が書き出す SVG ファイルの名前
-    customizer -- SvgCustomizer のインスタンス
-
-  Exports a SVG file from the specified glyph, and outputs new displayable one.
-
-  Arguments:
-    glyph      -- target glyph object
-    filename   -- file name of the SVG file that will be output by FontForge
-    customizer -- an instance of SvgCustomizer
-  '''
-  glyph.export(filename, 1)
-  customizer.execute(glyph, filename)
-
 
 if __name__ == '__main__':
 
@@ -229,4 +204,5 @@ if __name__ == '__main__':
       if glyph.unicode > 0:
         path = '%s/%04x.svg' % (output_dir, glyph.unicode)
         print path
-        make_svg(glyph, path, customizer)
+        glyph.export(path, 1)
+        customizer.execute(glyph, path)
