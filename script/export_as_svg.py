@@ -22,7 +22,7 @@ import os
 import sys
 import xml.parsers.expat
 
-COPYRIGHT = 'copyright (c) 2008-2009 mshio (mshio@users.sourceforge.jp)'
+COPYRIGHT = 'Copyright: (c) 2008-2009 mshio <mshio@users.sourceforge.jp>'
 
 class SvgCustomizer:
   '''
@@ -114,11 +114,16 @@ class SvgCustomizer:
     if sys_id:
       self.out.write(' "%s"' % sys_id)
     self.out.write('>')
-    if self.with_comment:
-      self.out.write('<!-- %s -->' % COPYRIGHT)
 
   def start_element(self, name, attrs):
-    '''各要素の開始部分を読み込み、その部分の書き出しを行います。'''
+    '''
+    各要素の開始部分を読み込み、その部分の書き出しを行います。
+    要素名が 'svg' の場合、xmlns 属性を付加し、さらに viewBox の値を変更し、
+    またさらにコピーライトの出力が指示されている場合は、svg 要素の後に
+    metadata 要素を追加し、そこにコピーライトを出力します。
+    要素名が 'path' の場合は、fill 属性の有無をチェックし、
+    あれば、その値を指定の値に変更します。
+    '''
     self.out.write('<%s' % name)
     is_svg = name == 'svg'
     is_path = name == 'path'
@@ -138,10 +143,41 @@ class SvgCustomizer:
       else:
         self.out.write(' %s="%s"' % (k, attrs[k]))
     self.out.write('>')
+    # output copyright string
+    if is_svg and self.with_comment:
+      self.out.write('<metadata><![CDATA[ %s ]]></metadata>' % COPYRIGHT)
 
   def end_element(self, name):
     '''各要素の終了部分を読み込み、その部分の書き出しを行います。'''
     self.out.write('</%s>' % name)
+
+#
+# functions
+#
+def make_svg(customizer, glyph, output_dir):
+  '''
+  SVG ファイルの生成と書き換えを行います。
+
+  まず FontForge の export 機能で SVG ファイルを生成し、
+  次いで SvgCustomizer でその内容を書き換えます。
+
+  引数:
+    customizer -- SvgCustomizer のインスタンス
+    glyph      -- 書き出す対象のグリフオブジェクト
+    output_dir -- 出力先のディレクトリ
+
+  Exports a SVG file from the specified glyph, and
+  outputs new one that can be displayed with a web browser.
+
+  Arguments:
+    customizer -- an instance of SvgCustomizer
+    glyph      -- target glyph object
+    output_dir -- directory for SVG files that will be outputed by this script
+  '''
+  path = '%s/%04x.svg' % (output_dir, glyph.unicode)
+  print path
+  glyph.export(path, 1)
+  customizer.execute(glyph, path)
 
 
 if __name__ == '__main__':
@@ -160,8 +196,13 @@ if __name__ == '__main__':
      -f, --fill :
             SVG のパスを塗りつぶす色を指定します。
             省略すると、black が指定されたことになります。
-     -c, --comment :
-            コピーライトコメントを付ける場合に指定します。
+     -c, --copyright :
+            コピーライト（内容は固定）を含める場合に指定します。
+            コピーライトは、metadata のデータとして挿入されます。
+     -g, --glpyh :
+            フォントが持つ全グリフではなく、特定の文字のみの
+            SVG ファイルを出力したい場合に指定します。
+            指定は、16 進数の文字コード（Unicode）で行います。
 
     Processes the arguments of command line.
     The first of them is font file path, and the second of them is path of
@@ -171,38 +212,46 @@ if __name__ == '__main__':
      -f, --fill:
             The color name with which fill the svg pathes.
             Default is 'black.'
-     -c, --comment:
-            When this option is specified, the copyright is written as comment
-            in each svg files.
+     -c, --copyright:
+            When this option is specified, the copyright is written as 
+            'metadata' in each svg files.
+     -g, --glyph:
+            Character code (hex). When this option is specified, 
+            this script will output only a SVG file of the specified character.
+            When not, it will output ones of all glyphs.
     '''
     usage = 'usage: %prog [-f color] [-c] fontfile directory'
     p = optparse.OptionParser(usage=usage)
     p.add_option('-f', '--fill', dest='color', default='black',
                  help='name of color that is used when filling the svg pathes')
-    p.add_option('-c', '--comment', dest='comment', 
+    p.add_option('-c', '--copyright', dest='copyright', 
                  action='store_true', default=False,
-                 help="write mshio's copyright as comment in each output files")
+                 help="write mshio's copyright in each output files")
+    p.add_option('-g', '--glyph', dest='code', default=None,
+                 help='char code that wants to be output')
     (opt, args) = p.parse_args()
 
     if len(args) != 2:
       p.error('incorrect number of arguments')
       raise InvalidArgumentError
 
-    return (args[0], args[1], opt.color, opt.comment)
+    return (args[0], args[1], opt.color, opt.copyright, opt.code)
 
 
   try:
-    (font_path, output_dir, color_name, comment) = parse_args()
+    (font_path, output_dir, color_name, comment, code) = parse_args()
   except InvalidArgumentError:
     sys.exit(1)
 
+  char_code = int(code, 16) if code else None
+
   customizer = SvgCustomizer(color_name, comment)
   font = fontforge.open(font_path)
-  for g in font:
-    if g[0] != '.':
-      glyph = font[g]
-      if glyph.unicode > 0:
-        path = '%s/%04x.svg' % (output_dir, glyph.unicode)
-        print path
-        glyph.export(path, 1)
-        customizer.execute(glyph, path)
+  if char_code:
+    make_svg(customizer, font[char_code], output_dir)
+  else:
+    for g in font:
+      if g[0] != '.':
+        glyph = font[g]
+        if glyph.unicode > 0:
+          make_svg(customizer, glyph, output_dir)
