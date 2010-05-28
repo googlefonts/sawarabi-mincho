@@ -141,14 +141,14 @@ public class SearchPanel extends JPanel {
 	private void setupSearchKeymap(final GuiController controller) {
 		KeyStroke key = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0);
 		Action a = new TextAction("search") {
-			private static final long serialVersionUID = 7670487950463928408L;
+			private static final long serialVersionUID = 118797095359988885L;
 			public void actionPerformed(ActionEvent e) {
 				String st = searchField.getSelectedText();
 				int p = searchField.getCaretPosition();
 				controller.onSearch(searchField.getText(), p, st);
 				String s = buffer.getCurrent();
 				String t = searchField.getText();
-				if (s == null || ! s.equals(t)) {
+				if ((s == null || ! s.equals(t)) && t.length() != 0) {
 					buffer.add(t);
 				}
 			}

@@ -30,13 +30,13 @@ public class HistoryBuffer {
 	public void add(String buf) {
 		buffer.add(buf);
 		if (buffer.size() >= MAX_LENGTH) { buffer.removeFirst(); }
-		iterator = buffer.listIterator(buffer.size() - 1);
+		iterator = null;
 		prev = true;
 	}
 
 	public String getPrev() {
 		String ret = null;
-		if (! buffer.isEmpty() && iterator.hasPrevious()) {
+		if (! isBufferEmpty() && iterator.hasPrevious()) {
 			ret = iterator.previous();
 			if (! prev && iterator.hasPrevious()) { ret = iterator.previous(); }
 			prev = true;
@@ -46,7 +46,7 @@ public class HistoryBuffer {
 
 	public String getNext() {
 		String ret = null;
-		if (! buffer.isEmpty() && iterator.hasNext()) {
+		if (! isBufferEmpty() && iterator.hasNext()) {
 			ret = iterator.next();
 			if (prev && iterator.hasNext()) { ret = iterator.next(); }
 			prev = false;
@@ -56,5 +56,13 @@ public class HistoryBuffer {
 
 	public String getCurrent() {
 		return buffer.isEmpty() ? null : buffer.getLast();
+	}
+
+	private boolean isBufferEmpty() {
+		boolean ret = buffer.isEmpty();
+		if (! ret && iterator == null) { 
+			iterator = buffer.listIterator(buffer.size() - 1); 
+		}
+		return ret;
 	}
 }
