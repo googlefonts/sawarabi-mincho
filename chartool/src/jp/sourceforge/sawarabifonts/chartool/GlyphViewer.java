@@ -35,6 +35,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 import javax.swing.text.TextAction;
 
 public class GlyphViewer extends JTextField {
@@ -92,6 +94,7 @@ public class GlyphViewer extends JTextField {
 				Logger.getLogger(Main.LOGNAME).warning(e.getMessage());
 			}
 			add(fontmenu);
+			setupAutoReflesh(fontmenu);
 		}
 
 		private void addCustomFontMenu(JMenu menu) throws IOException {
@@ -111,6 +114,31 @@ public class GlyphViewer extends JTextField {
 			menu.add(new TextAction(nm) {
 				private static final long serialVersionUID = 7621704223879655193L;
 				public void actionPerformed(ActionEvent e) { changeFont(nm); }
+			});
+		}
+
+		private void setupAutoReflesh(JMenu fontmenu) {
+			fontmenu.addMenuListener(new MenuListener() {
+				public void menuSelected(MenuEvent e) {
+					ConfigScript s = ConfigScript.getInstance();
+					if (! s.isLoaded()) { 
+						try {
+							s.load();
+							Object o = e.getSource();
+							if (o instanceof JMenu) {
+								JMenu m = (JMenu) o;
+								m.removeAll();
+								addCustomFontMenu(m);
+							} else {
+								System.out.println(o);
+							}
+						} catch (IOException ex) {
+							ex.printStackTrace();
+						} 
+					}
+				}
+				public void menuCanceled(MenuEvent e) { }
+				public void menuDeselected(MenuEvent e) { }
 			});
 		}
 	}

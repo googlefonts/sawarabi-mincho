@@ -31,8 +31,10 @@ import org.mozilla.javascript.Function;
 import org.mozilla.javascript.ScriptableObject;
 
 public class ConfigScript {
+	private final static String SCRIPT_FILE = "js/charpalette.js";
 	private final static ConfigScript instance = new ConfigScript();
 	private JsScriptableObject scriptable = null;
+	private long lastModified = -1;
 
 	private ConfigScript() { }
 
@@ -41,11 +43,10 @@ public class ConfigScript {
 	}
 
 	public void load() throws IOException {
-		load("js/charpalette.js");
+		load(new File(SCRIPT_FILE));
 	}
 
-	public void load(String filename) throws IOException {
-		File f = new File(filename);
+	public void load(File f) throws IOException {
 		FileReader in = new FileReader(f);
 		Context cx = Context.enter();
 		scriptable = new JsScriptableObject();
@@ -53,13 +54,14 @@ public class ConfigScript {
 		setupVariables();
 		try {
 			cx.evaluateReader(scriptable, in, "<config>", 0, null);
+			lastModified = f.lastModified();
 		} finally {
 			Context.exit();
 		}
 	}
 
 	public boolean isLoaded() {
-		return scriptable != null;
+		return scriptable != null && checkModified(SCRIPT_FILE);
 	}
 
 	public String[] getFontNames() {
@@ -117,5 +119,22 @@ public class ConfigScript {
 
 	public void setFrame(JFrame frame) {
 		scriptable.setFrame(frame);
+	}
+
+	private boolean checkModified(String path) {
+		boolean ret = false;
+		File f = new File(path);
+		long m = f.lastModified();
+		if (lastModified < m) {
+			JsScriptableObject p = scriptable;
+			try {
+				load(f);
+			} catch (IOException e) {
+				e.printStackTrace();
+				Logger.getLogger(Main.LOGNAME).warning(e.getMessage());
+				scriptable = p;
+			}
+		}
+		return ret;
 	}
 }

@@ -28,9 +28,9 @@ public class HistoryBuffer {
 	private boolean prev = true;
 
 	public void add(String buf) {
+		iterator = null;
 		buffer.add(buf);
 		if (buffer.size() >= MAX_LENGTH) { buffer.removeFirst(); }
-		iterator = null;
 		prev = true;
 	}
 

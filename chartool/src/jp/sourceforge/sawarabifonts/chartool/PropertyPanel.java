@@ -102,6 +102,7 @@ public class PropertyPanel extends JPanel {
 					String t = properties[id].getText();
 					ConfigScript s = ConfigScript.getInstance();
 					try {
+						if (! s.isLoaded()) { s.load(); }
 						s.execScript(id, t, e.getModifiers());
 					} catch (Exception ex) {
 						ex.printStackTrace();
