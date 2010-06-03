@@ -49,7 +49,9 @@ public class ConfigScript {
 	public void load(File f) throws IOException {
 		FileReader in = new FileReader(f);
 		Context cx = Context.enter();
+		JFrame w = (scriptable == null) ? null : scriptable.getFrame();
 		scriptable = new JsScriptableObject();
+		if (w != null) scriptable.setFrame(w);
 		cx.initStandardObjects(scriptable);
 		setupVariables();
 		try {
@@ -122,19 +124,7 @@ public class ConfigScript {
 	}
 
 	private boolean checkModified(String path) {
-		boolean ret = false;
 		File f = new File(path);
-		long m = f.lastModified();
-		if (lastModified < m) {
-			JsScriptableObject p = scriptable;
-			try {
-				load(f);
-			} catch (IOException e) {
-				e.printStackTrace();
-				Logger.getLogger(Main.LOGNAME).warning(e.getMessage());
-				scriptable = p;
-			}
-		}
-		return ret;
+		return lastModified >= f.lastModified();
 	}
 }

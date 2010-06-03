@@ -86,7 +86,6 @@ public class GlyphViewer extends JTextField {
 				public void actionPerformed(ActionEvent e) { copyChar(); }
 			});
 			JMenu fontmenu = new JMenu("font");
-			setFontMenu(fontmenu, "Dialog");
 			try {
 				addCustomFontMenu(fontmenu);
 			} catch (IOException e) {
@@ -98,6 +97,7 @@ public class GlyphViewer extends JTextField {
 		}
 
 		private void addCustomFontMenu(JMenu menu) throws IOException {
+			setFontMenu(menu, "Dialog");
 			ConfigScript s = ConfigScript.getInstance();
 			if (! s.isLoaded()) { s.load(); }
 			String[] fnt = s.getFontNames();

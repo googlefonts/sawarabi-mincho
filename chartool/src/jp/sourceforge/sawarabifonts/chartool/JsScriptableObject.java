@@ -28,9 +28,18 @@ public class JsScriptableObject extends ScriptableObject {
 
 	private JFrame frame = null;
 
+	public JsScriptableObject() {
+		super();
+		System.out.println("new");
+	}
+
 	@Override
 	public String getClassName() {
 		return "JsScriptableObject";
+	}
+
+	JFrame getFrame() {
+		return frame;
 	}
 
 	public void setFrame(JFrame frame) {
