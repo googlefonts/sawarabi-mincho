@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2009, mshio <mshio@users.sourceforge.jp>
+# Copyright (C) 2009-2010, mshio <mshio@users.sourceforge.jp>
 #
 # This program is free software: you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@ import os
 import sys
 import xml.parsers.expat
 
-COPYRIGHT = 'Copyright: (c) 2008-2009 mshio <mshio@users.sourceforge.jp>'
+COPYRIGHT = 'Copyright: (c) 2008-2010 mshio <mshio@users.sourceforge.jp>'
 
 class SvgCustomizer:
   '''
