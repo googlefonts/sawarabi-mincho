@@ -20,9 +20,10 @@ import fontforge
 import optparse
 import os
 import sys
+import time
 import xml.parsers.expat
 
-COPYRIGHT = 'Copyright: (c) 2008-2010 mshio <mshio@users.sourceforge.jp>'
+COPYRIGHT = 'Copyright: (c) 2008-%d mshio <mshio@users.sourceforge.jp>'
 
 class SvgCustomizer:
   '''
@@ -145,7 +146,8 @@ class SvgCustomizer:
     self.out.write('>')
     # output copyright string
     if is_svg and self.with_comment:
-      self.out.write('<metadata><![CDATA[ %s ]]></metadata>' % COPYRIGHT)
+      c = COPYRIGHT % time.localtime()[0]
+      self.out.write('<metadata><![CDATA[ %s ]]></metadata>' % c)
 
   def end_element(self, name):
     '''各要素の終了部分を読み込み、その部分の書き出しを行います。'''
