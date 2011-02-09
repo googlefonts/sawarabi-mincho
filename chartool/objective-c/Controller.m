@@ -13,6 +13,7 @@
 - (id) init {
 	currentCharacter = nil;
 	engine = [JavaScriptEngine instance];
+	charUtil = [UnicharUtil instance];
 	return [super init];
 }
 
@@ -61,37 +62,37 @@
 	[glyphView setImage: m];
 }
 
-- (NSString*) getUnicharFromText: (NSString*) text withLocation: (int) loc {
+- (NSRange) getTargetRangeFrom: (NSString*) text withLocation: (int) loc {
 	unichar ch = [text characterAtIndex: loc];
-
+	
 	int rlen = 0, llen = 0;
-	while (rlen <= 4 && ((ch >= '0' && ch <= '9') ||
-						 (ch >= 'a' && ch <= 'f') ||
-						 (ch >= 'A' && ch <= 'F'))) {
+	while (rlen <= 4 && [charUtil characterIsHexCharacter: ch]) {
 		rlen++;
 		if (loc + rlen >= [text length]) break;
 		ch = [text characterAtIndex: loc + rlen];
 	}
-	if (rlen >=1 && rlen < 5) {
-		do {
-			if (loc - llen <= 0) break;
+	if (rlen >= 1 && rlen < 5) {
+		while (rlen + llen <= 4 && loc - llen > 0) {
+			ch = [text characterAtIndex: loc - llen - 1];
+			if (! [charUtil characterIsHexCharacter: ch]) break;
 			llen++;
-			ch = [text characterAtIndex: loc - llen];
-		} while (rlen + llen <= 4 && ((ch >= '0' && ch <= '9') ||
-									  (ch >= 'a' && ch <= 'f') ||
-									  (ch >= 'A' && ch <= 'F')));
-	}
-	if (rlen + llen >= 4 && rlen + llen <= 5) {
-		char s[rlen + llen + 1];
-		for (int i = loc - llen; i < loc + rlen; i++) {
-			s[i - (loc - llen)] = (char) [text characterAtIndex: i];
 		}
-		s[rlen + llen] = '\0';
-		int v;
-		sscanf(s, "%x", &v);
-		return [[NSString alloc] initWithCharacters: (unichar[]) {v} length: 1];
 	}
-	return [text substringWithRange: NSMakeRange(loc, 1)];
+
+	return NSMakeRange(loc - llen, rlen + llen);
+}
+
+- (NSString*) getCharacterFrom: (NSString*) text withRange: (NSRange) range andLocation: (int) loc {
+	if (range.length >= 4) {
+		return [charUtil getUnicharFromCharCode: [text substringWithRange: range]];
+	} else {
+		unichar ch = [text characterAtIndex: range.location];
+		BOOL high = [charUtil characterIsHighSurrogate: ch];
+		BOOL low = [charUtil characterIsLowSurrogate: ch];
+		int p = loc - (low ? 1 : 0);
+		return [text substringWithRange: 
+				NSMakeRange(p < 0 ? 0 : loc, high || low ? 2 : 1)];
+	}
 }
 
 - (IBAction) search: (id) sender {
@@ -100,16 +101,21 @@
 
 	NSText* editor = [searchField currentEditor];
 	NSRange r = [editor selectedRange];
-	int c = r.location + r.length < [text length] ? r.location + r.length : 0;
-	NSString* ch = [self getUnicharFromText: text withLocation: c];
+	int loc = r.location + r.length < [text length] ? r.location + r.length : 0;
+	NSRange tr = [self getTargetRangeFrom: text withLocation: loc];
+	NSString* ch = [self getCharacterFrom: text withRange: tr andLocation: loc];
 	
 	currentCharacter = ch;
-	[editor setSelectedRange: NSMakeRange(c, 1)];
+	[editor setSelectedRange: 
+	 tr.length < 4 ? NSMakeRange(loc, [ch length]) : NSMakeRange(tr.location, tr.length)];
 
 	[self drawOnGlyphView: ch];
 
-	NSString* code = [NSString stringWithFormat: @"%04x", [ch characterAtIndex:0]];
+	NSString* code = [charUtil getCharCodeFromUnichar: ch];
 	[codeField setStringValue: code];
+}
+
+- (IBAction) clickScriptButton: (id) sender {
 }
 
 - (IBAction) copyGlyphCharacter: (id) sender {

@@ -11,6 +11,7 @@
 		4940082D12FEAFA90050DD3E /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4940082C12FEAFA90050DD3E /* JavaScriptCore.framework */; };
 		4940083112FEAFD90050DD3E /* JavaScriptEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4940083012FEAFD90050DD3E /* JavaScriptEngine.m */; };
 		49966FED12FD6588004DAD35 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 49966FEC12FD6588004DAD35 /* Controller.m */; };
+		49D3C86013024AFC00DA507B /* UnicharUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D3C85F13024AFC00DA507B /* UnicharUtil.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -30,6 +31,8 @@
 		4940083012FEAFD90050DD3E /* JavaScriptEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaScriptEngine.m; sourceTree = "<group>"; };
 		49966FEB12FD6588004DAD35 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		49966FEC12FD6588004DAD35 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
+		49D3C85E13024AFC00DA507B /* UnicharUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnicharUtil.h; sourceTree = "<group>"; };
+		49D3C85F13024AFC00DA507B /* UnicharUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnicharUtil.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* chartool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chartool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -54,6 +57,8 @@
 				49966FEC12FD6588004DAD35 /* Controller.m */,
 				4940082F12FEAFD90050DD3E /* JavaScriptEngine.h */,
 				4940083012FEAFD90050DD3E /* JavaScriptEngine.m */,
+				49D3C85E13024AFC00DA507B /* UnicharUtil.h */,
+				49D3C85F13024AFC00DA507B /* UnicharUtil.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				49966FED12FD6588004DAD35 /* Controller.m in Sources */,
 				4940083112FEAFD90050DD3E /* JavaScriptEngine.m in Sources */,
+				49D3C86013024AFC00DA507B /* UnicharUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "JavaScriptEngine.h"
+#import "UnicharUtil.h"
 
 @interface Controller : NSObject {
 	IBOutlet NSTextField* searchField;
@@ -17,8 +18,10 @@
 
 	NSString* currentCharacter;
 	JavaScriptEngine* engine;
+	UnicharUtil* charUtil;
 }
 - (IBAction) search:(id)sender;
+- (IBAction) clickScriptButton: (id)sender;
 - (IBAction) copyGlyphCharacter:(id)sender;
 
 @end

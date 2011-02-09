@@ -2,8 +2,8 @@
 //  main.m
 //  chartool
 //
-//  Created by mshio on 10/06/05.
-//  Copyright mshio 2010. All rights reserved.
+//  Created by haru on 10/06/05.
+//  Copyright __MyCompanyName__ 2010. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
