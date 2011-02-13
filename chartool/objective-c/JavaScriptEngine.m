@@ -6,7 +6,52 @@
 //  Copyright 2011 mshio. All rights reserved.
 //
 
+#include <stdio.h>
 #import "JavaScriptEngine.h"
+
+NSString* getNSStringFromParameter(JSContextRef ctx,
+								   JSObjectRef arg,
+								   JSValueRef* jobjExp) {
+	JSStringRef s = JSValueToStringCopy(ctx, arg, jobjExp);
+	size_t bufferSize = JSStringGetMaximumUTF8CStringSize(s);
+	char* buffer = (char*) malloc(bufferSize);
+	JSStringGetUTF8CString(s, buffer, bufferSize);
+	NSString* ret = [[NSString alloc] initWithUTF8String: buffer];
+
+	return ret;
+}
+
+static JSValueRef jsAlert(JSContextRef ctx,
+						  JSObjectRef jobj,
+						  JSObjectRef jobjThis,
+						  size_t argLen,
+						  const JSObjectRef args[],
+						  JSValueRef* jobjExp) {
+	if (argLen) {
+		NSString* str = getNSStringFromParameter(ctx, args[0], jobjExp);
+
+		NSAlert * alert = [[NSAlert alloc] init];
+		[alert setMessageText: str];
+		[alert runModal];
+	}
+	return JSValueMakeUndefined(ctx);
+}
+
+static JSValueRef jsOpenFile(JSContextRef ctx,
+							 JSObjectRef jobj,
+							 JSObjectRef jobjThis,
+							 size_t argLen,
+							 const JSObjectRef args[],
+							 JSValueRef* jobjExp) {
+	BOOL ret = NO;
+	if (argLen) {
+		NSString* str = getNSStringFromParameter(ctx, args[0], jobjExp);
+		
+		ret = [[NSWorkspace sharedWorkspace] openFile: str];
+	}
+	return JSValueMakeBoolean(ctx, ret);
+}
+
 
 @implementation JavaScriptEngine
 
@@ -22,6 +67,19 @@
 	return result;
 }
 
+- (void) setFunction: (JSObjectCallAsFunctionCallback) cfunc withName: (const char*) name {
+	JSObjectRef object = JSContextGetGlobalObject(context);
+	JSStringRef nm = JSStringCreateWithUTF8CString(name);
+	JSObjectRef func = JSObjectMakeFunctionWithCallback(context, nm, cfunc);
+	JSObjectSetProperty(context, object, nm, func, kJSPropertyAttributeNone, NULL);
+	JSStringRelease(nm);
+}
+
+- (void) setFunctions {
+	[self setFunction:(JSObjectCallAsFunctionCallback) jsAlert withName: "alert"];
+	[self setFunction:(JSObjectCallAsFunctionCallback) jsOpenFile withName: "openFile"];
+}
+
 - (void) loadScript {
 	NSString* script;
 	NSString* path = @"./js/charpalette.js";
@@ -30,6 +88,7 @@
 	script = [NSString stringWithContentsOfFile: path encoding: NSUTF8StringEncoding error: &error];
 	if (script) {
 		[self evaluateScript: script];
+		[self setFunctions];
 	} else {
 		NSLog(@"the js file is not found");
 	}

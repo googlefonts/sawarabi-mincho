@@ -14,6 +14,7 @@
 	IBOutlet NSTextField* searchField;
 	IBOutlet NSImageView* glyphView;
 	IBOutlet NSTextField* codeField;
+	IBOutlet NSTextField* nameField;
 	IBOutlet NSMenu* glyphViewMenu;
 
 	NSString* currentCharacter;
