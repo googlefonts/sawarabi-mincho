@@ -22,12 +22,17 @@
 	NSMenuItem* menu = [glyphViewMenu itemAtIndex: 1];
 	NSMenu* p = [[NSMenu alloc] init];
 	
-	for (int i = 0; i <= [nm count]; i++) {
+	[p setAutoenablesItems: NO];
+	int i = 0;
+	do {
 		NSString* t = i == 0 ? @"default" : [nm objectAtIndex: i - 1];
 		NSMenuItem* m = [[NSMenuItem alloc] init];
 		[m setTitle: t];
+		[m setAction: @selector(changeFont:)];
+		[m setTarget: self];
+		[m setEnabled: YES];
 		[p addItem: m];
-	}
+	} while (nm != NULL && ++i <= [nm count]);
 	[menu setSubmenu: p];
 }
 
@@ -49,11 +54,11 @@
 	
 	NSSize vsz = [glyphView bounds].size;
 	NSImage *m = [[NSImage alloc] initWithSize: vsz];
-	NSSize ssz = [s sizeWithAttributes: [self genFontAttrDict: nil size: dummy]];
+	NSSize ssz = [s sizeWithAttributes: [self genFontAttrDict: currentFont size: dummy]];
 	float fsize = dummy * 
 		(vsz.width >= vsz.height ? 1 / ssz.height * vsz.height :
 		 1 / ssz.width * vsz.width);
-	NSDictionary *attr = [self genFontAttrDict: nil size: fsize];
+	NSDictionary *attr = [self genFontAttrDict: currentFont size: fsize];
 	ssz = [s sizeWithAttributes: attr];
 	int margin = (vsz.width - ssz.width) / 2;
 	[m lockFocus];
@@ -129,6 +134,13 @@
 		NSPasteboard* cb = [NSPasteboard generalPasteboard];
 		[cb declareTypes: [NSArray arrayWithObject: NSStringPboardType] owner: nil];
 		[cb setString: currentCharacter forType: NSStringPboardType];
+	}
+}
+
+- (IBAction) changeFont: (id) sender {
+	currentFont = [sender title];
+	if (currentCharacter != nil) {
+		[self drawOnGlyphView: currentCharacter];
 	}
 }
 

@@ -75,6 +75,14 @@ static JSValueRef jsOpenFile(JSContextRef ctx,
 	JSStringRelease(nm);
 }
 
+- (void) setValue: (const char*) value ToVariable: (const char*) name {
+	JSObjectRef object = JSContextGetGlobalObject(context);
+	JSStringRef nm = JSStringCreateWithUTF8CString(name);
+	JSValueRef var = JSValueMakeString(context, JSStringCreateWithUTF8CString(value));
+	JSObjectSetProperty(context, object, nm, var, kJSPropertyAttributeNone, NULL);
+	JSStringRelease(nm);
+}
+
 - (void) setFunctions {
 	[self setFunction:(JSObjectCallAsFunctionCallback) jsAlert withName: "alert"];
 	[self setFunction:(JSObjectCallAsFunctionCallback) jsOpenFile withName: "openFile"];
@@ -82,13 +90,14 @@ static JSValueRef jsOpenFile(JSContextRef ctx,
 
 - (void) loadScript {
 	NSString* script;
-	NSString* path = @"./js/charpalette.js";
+	NSString* path = [[NSString alloc] initWithFormat: @"%@/.charpalette.js", NSHomeDirectory()];
 	NSError* error;
 	
 	script = [NSString stringWithContentsOfFile: path encoding: NSUTF8StringEncoding error: &error];
 	if (script) {
 		[self evaluateScript: script];
 		[self setFunctions];
+		[self setValue: [NSHomeDirectory() UTF8String] ToVariable: "HOME"];
 	} else {
 		NSLog(@"the js file is not found");
 	}
@@ -122,9 +131,13 @@ static JSValueRef jsOpenFile(JSContextRef ctx,
 
 - (NSArray *) getFontsNameArray {
 	NSString* v = [self evaluate: @"font"];
-	NSArray* r = [v componentsSeparatedByString: @","];
+	if (! [v isEqualToString: @"[Exception]"]) {
+		NSArray* r = [v componentsSeparatedByString: @","];
 
-	return r;
+		return r;
+	} else {
+		return NULL;
+	}
 }
 
 - (void) release {

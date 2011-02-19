@@ -18,11 +18,13 @@
 	IBOutlet NSMenu* glyphViewMenu;
 
 	NSString* currentCharacter;
+	NSString* currentFont;
 	JavaScriptEngine* engine;
 	UnicharUtil* charUtil;
 }
 - (IBAction) search:(id)sender;
 - (IBAction) clickScriptButton: (id)sender;
 - (IBAction) copyGlyphCharacter:(id)sender;
+- (IBAction) changeFont: (id)sender;
 
 @end

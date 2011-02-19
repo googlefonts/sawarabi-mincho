@@ -12,9 +12,9 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="510"/>
-			<integer value="57"/>
 			<integer value="471"/>
+			<integer value="518"/>
+			<integer value="57"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1116,7 +1116,7 @@
 			<object class="NSWindowTemplate" id="376871716">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{10, 800}, {341, 122}}</string>
+				<string key="NSWindowRect">{{3, 855}, {341, 122}}</string>
 				<int key="NSWTFlags">603980800</int>
 				<string key="NSWindowTitle">chartool</string>
 				<string key="NSWindowClass">NSPanel</string>
@@ -3511,9 +3511,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{18, 855}, {341, 122}}</string>
+					<string>{{3, 855}, {341, 122}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{18, 855}, {341, 122}}</string>
+					<string>{{3, 855}, {341, 122}}</string>
 					<boolean value="YES"/>
 					<boolean value="YES"/>
 					<string>{341, 122}</string>
@@ -3542,7 +3542,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{93, 926}, {86, 23}}</string>
+					<string>{{90, 926}, {83, 23}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3608,12 +3608,14 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>changeFont:</string>
 							<string>clickScriptButton:</string>
 							<string>copyGlyphCharacter:</string>
 							<string>search:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -3623,12 +3625,17 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>changeFont:</string>
 							<string>clickScriptButton:</string>
 							<string>copyGlyphCharacter:</string>
 							<string>search:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">changeFont:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 							<object class="IBActionInfo">
 								<string key="name">clickScriptButton:</string>
 								<string key="candidateClassName">id</string>
