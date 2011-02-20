@@ -122,11 +122,9 @@
 
 - (IBAction) clickScriptButton: (id) sender {
 	int tag = [sender tag];
-	NSString* str = tag == 0 ? [codeField stringValue] : [nameField stringValue];
+	NSString* p = [tag == 0 ? codeField : nameField stringValue];
 	NSUInteger m = [NSEvent modifierFlags];
-	NSString* script = [NSString stringWithFormat: 
-						@"script[%d]('%@', %d);", tag, str, m];
-	[engine evaluate: script];
+	[engine executeScriptAtIndex: tag withProperty: p AndModifier: m];
 }
 
 - (IBAction) copyGlyphCharacter: (id) sender {

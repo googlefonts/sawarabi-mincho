@@ -75,11 +75,21 @@ static JSValueRef jsOpenFile(JSContextRef ctx,
 	JSStringRelease(nm);
 }
 
-- (void) setValue: (const char*) value ToVariable: (const char*) name {
-	JSObjectRef object = JSContextGetGlobalObject(context);
+- (void) setString: (const char*) value toVariable: (const char*) name {
+	JSObjectRef obj = JSContextGetGlobalObject(context);
 	JSStringRef nm = JSStringCreateWithUTF8CString(name);
-	JSValueRef var = JSValueMakeString(context, JSStringCreateWithUTF8CString(value));
-	JSObjectSetProperty(context, object, nm, var, kJSPropertyAttributeNone, NULL);
+	JSStringRef v = JSStringCreateWithUTF8CString(value);
+	JSValueRef val = JSValueMakeString(context, v);
+	JSObjectSetProperty(context, obj, nm, val, kJSPropertyAttributeNone, NULL);
+	JSStringRelease(nm);
+	JSStringRelease(v);
+}
+
+- (void) setInteger: (int) value toVariable: (const char*) name {
+	JSObjectRef obj = JSContextGetGlobalObject(context);
+	JSStringRef nm = JSStringCreateWithUTF8CString(name);
+	JSValueRef val = JSValueMakeNumber(context, value);
+	JSObjectSetProperty(context, obj, nm, val, kJSPropertyAttributeNone, NULL);
 	JSStringRelease(nm);
 }
 
@@ -90,14 +100,24 @@ static JSValueRef jsOpenFile(JSContextRef ctx,
 
 - (void) loadScript {
 	NSString* script;
-	NSString* path = [[NSString alloc] initWithFormat: @"%@/.charpalette.js", NSHomeDirectory()];
+	NSString* home = NSHomeDirectory();
+	NSString* path = [[NSString alloc] initWithFormat: @"%@/.charpalette.js", home];
 	NSError* error;
 	
 	script = [NSString stringWithContentsOfFile: path encoding: NSUTF8StringEncoding error: &error];
 	if (script) {
 		[self evaluateScript: script];
 		[self setFunctions];
-		[self setValue: [NSHomeDirectory() UTF8String] ToVariable: "HOME"];
+		[self setString: [home UTF8String] toVariable: "HOME"];
+		[self setInteger: NSAlphaShiftKeyMask toVariable: "NSAlphaShiftKeyMask"];
+		[self setInteger: NSShiftKeyMask toVariable: "NSShiftKeyMask"];
+		[self setInteger: NSControlKeyMask toVariable: "NSControlKeyMask"];
+		[self setInteger: NSAlternateKeyMask toVariable: "NSAlternateKeyMask"];
+		[self setInteger: NSCommandKeyMask toVariable: "NSCommandKeyMask"];
+		[self setInteger: NSNumericPadKeyMask toVariable: "NSNumericPadKeyMask"];
+		[self setInteger: NSHelpKeyMask toVariable: "NSHelpKeyMask"];
+		[self setInteger: NSFunctionKeyMask toVariable: "NSFunctionKeyMask"];
+		[self setInteger: NSDeviceIndependentModifierFlagsMask toVariable: "NSDeviceIndependentModifierFlagsMask"];
 	} else {
 		NSLog(@"the js file is not found");
 	}
@@ -143,6 +163,27 @@ static JSValueRef jsOpenFile(JSContextRef ctx,
 - (void) release {
 	JSGlobalContextRelease(context);
 	[super release];
+}
+
+- (void) executeScriptAtIndex:(int)index withProperty:(NSString *)property AndModifier:(int)modifier {
+	JSObjectRef object = JSContextGetGlobalObject(context);
+	JSStringRef nm = JSStringCreateWithUTF8CString("script");
+	JSValueRef script = JSObjectGetProperty(context, object, nm, NULL);
+	JSStringRelease(nm);
+
+	JSValueRef val = NULL;
+	if (! JSValueIsUndefined(context, script)) {
+		JSObjectRef array = JSValueToObject(context, script, NULL);
+		val = JSObjectGetPropertyAtIndex(context, array, index, NULL);
+	}
+	if (val != NULL && ! JSValueIsUndefined(context, val)) {
+		JSObjectRef func = JSValueToObject(context, val,  NULL);
+
+		JSStringRef t = JSStringCreateWithCFString((CFStringRef) property);
+		JSValueRef args[] = {JSValueMakeString(context, t), JSValueMakeNumber(context, modifier)};
+		JSObjectCallAsFunction(context, func, object, 2, args, NULL);
+		JSStringRelease(t);
+	}
 }
 
 @end
