@@ -27,4 +27,6 @@
 - (IBAction) copyGlyphCharacter:(id)sender;
 - (IBAction) changeFont: (id)sender;
 
+- (BOOL) control: (NSControl *) control textView: (NSTextView *) textView doCommandBySelector: (SEL) command;
+
 @end

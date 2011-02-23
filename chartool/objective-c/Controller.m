@@ -11,14 +11,13 @@
 @implementation Controller
 
 - (id) init {
-	currentCharacter = nil;
 	engine = [JavaScriptEngine instance];
 	charUtil = [UnicharUtil instance];
 	return [super init];
 }
 
 - (void) setupFontMenu {
-	NSArray* nm = [engine getFontsNameArray];
+	NSArray* nm = [engine fontNamesWithArray];
 	NSMenuItem* menu = [glyphViewMenu itemAtIndex: 1];
 	NSMenu* p = [[NSMenu alloc] init];
 	
@@ -49,67 +48,76 @@
 			f, NSFontAttributeName, nil];
 }
 
-- (void) drawOnGlyphView: (NSString*) s {
+- (void) drawOnGlyphView: (NSString*) string {
 	float dummy = 24.0;
 	
-	NSSize vsz = [glyphView bounds].size;
-	NSImage *m = [[NSImage alloc] initWithSize: vsz];
-	NSSize ssz = [s sizeWithAttributes: [self genFontAttrDict: currentFont size: dummy]];
-	float fsize = dummy * 
-		(vsz.width >= vsz.height ? 1 / ssz.height * vsz.height :
-		 1 / ssz.width * vsz.width);
-	NSDictionary *attr = [self genFontAttrDict: currentFont size: fsize];
-	ssz = [s sizeWithAttributes: attr];
-	int margin = (vsz.width - ssz.width) / 2;
-	[m lockFocus];
-	[s drawAtPoint: NSMakePoint(margin, 0) withAttributes: attr];
-	[m unlockFocus];
-	[glyphView setImage: m];
+	NSSize viewSize = [glyphView bounds].size;
+	NSImage* image = [[NSImage alloc] initWithSize: viewSize];
+	NSSize stringSize = [string sizeWithAttributes: 
+						 [self genFontAttrDict: currentFont size: dummy]];
+	float fontSize = dummy * 
+		(viewSize.width >= viewSize.height ? 1 / stringSize.height * viewSize.height :
+		 1 / stringSize.width * viewSize.width);
+	NSDictionary *attr = [self genFontAttrDict: currentFont size: fontSize];
+	stringSize = [string sizeWithAttributes: attr];
+	int margin = (viewSize.width - stringSize.width) / 2;
+	[image lockFocus];
+	[string drawAtPoint: NSMakePoint(margin, 0) withAttributes: attr];
+	[image unlockFocus];
+	[glyphView setImage: image];
 }
 
-- (NSRange) getTargetRangeFrom: (NSString*) text withLocation: (int) loc {
-	unichar ch = [text characterAtIndex: loc];
+- (NSRange) getTargetRangeFrom: (NSString*) text withLocation: (int) location {
+	unichar ch = [text characterAtIndex: location];
 	
 	int rlen = 0, llen = 0;
 	while (rlen <= 4 && [charUtil characterIsHexCharacter: ch]) {
 		rlen++;
-		if (loc + rlen >= [text length]) break;
-		ch = [text characterAtIndex: loc + rlen];
+		if (location + rlen >= [text length]) break;
+		ch = [text characterAtIndex: location + rlen];
 	}
 	if (rlen >= 1 && rlen < 5) {
-		while (rlen + llen <= 4 && loc - llen > 0) {
-			ch = [text characterAtIndex: loc - llen - 1];
+		while (rlen + llen <= 4 && location - llen > 0) {
+			ch = [text characterAtIndex: location - llen - 1];
 			if (! [charUtil characterIsHexCharacter: ch]) break;
 			llen++;
 		}
 	}
 
-	return NSMakeRange(loc - llen, rlen + llen);
+	return NSMakeRange(location - llen, rlen + llen);
 }
 
-- (NSString*) getCharacterFrom: (NSString*) text withRange: (NSRange) range andLocation: (int) loc {
+- (NSString*) getCharacterFrom: (NSString*) text withRange: (NSRange) range andLocation: (int) location {
 	if (range.length >= 4) {
 		return [charUtil getUnicharFromCharCode: [text substringWithRange: range]];
 	} else {
 		unichar ch = [text characterAtIndex: range.location];
 		BOOL high = [charUtil characterIsHighSurrogate: ch];
 		BOOL low = [charUtil characterIsLowSurrogate: ch];
-		int p = loc - (low ? 1 : 0);
+		int p = location - (low ? 1 : 0);
 		return [text substringWithRange: 
-				NSMakeRange(p < 0 ? 0 : loc, high || low ? 2 : 1)];
+				NSMakeRange(p < 0 ? 0 : location, high || low ? 2 : 1)];
 	}
 }
 
+- (BOOL) control: (NSControl *) control textView: (NSTextView *) textView doCommandBySelector: (SEL) command {
+	if (command == @selector(insertNewline:)) {
+		[self search: control];
+		return YES;
+	}
+	return NO;
+}
+
 - (IBAction) search: (id) sender {
-	NSString *text = [searchField stringValue];
-	if ([text length] <=0) return;
+	NSString* text = [searchField stringValue];
+	if ([text length] <= 0) return;
 
 	NSText* editor = [searchField currentEditor];
-	NSRange r = [editor selectedRange];
-	int loc = r.location + r.length < [text length] ? r.location + r.length : 0;
+	NSRange range = [editor selectedRange];
+	int loc = range.location + range.length < [text length] ? range.location + range.length : 0;
 	NSRange tr = [self getTargetRangeFrom: text withLocation: loc];
 	NSString* ch = [self getCharacterFrom: text withRange: tr andLocation: loc];
-	
+
 	currentCharacter = ch;
 	[editor setSelectedRange: 
 	 tr.length < 4 ? NSMakeRange(loc, [ch length]) : NSMakeRange(tr.location, tr.length)];

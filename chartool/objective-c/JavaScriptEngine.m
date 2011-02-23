@@ -149,7 +149,7 @@ static JSValueRef jsOpenFile(JSContextRef ctx,
 	return [(NSString *) resultString autorelease];
 }
 
-- (NSArray *) getFontsNameArray {
+- (NSArray *) fontNamesWithArray {
 	NSString* v = [self evaluate: @"font"];
 	if (! [v isEqualToString: @"[Exception]"]) {
 		NSArray* r = [v componentsSeparatedByString: @","];
