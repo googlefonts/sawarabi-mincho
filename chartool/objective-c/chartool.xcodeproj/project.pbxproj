@@ -10,6 +10,7 @@
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		4940082D12FEAFA90050DD3E /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4940082C12FEAFA90050DD3E /* JavaScriptCore.framework */; };
 		4940083112FEAFD90050DD3E /* JavaScriptEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4940083012FEAFD90050DD3E /* JavaScriptEngine.m */; };
+		49817B1A131BBB0D00BCEFA7 /* HistoryRing.m in Sources */ = {isa = PBXBuildFile; fileRef = 49817B19131BBB0D00BCEFA7 /* HistoryRing.m */; };
 		49966FED12FD6588004DAD35 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 49966FEC12FD6588004DAD35 /* Controller.m */; };
 		49D3C86013024AFC00DA507B /* UnicharUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D3C85F13024AFC00DA507B /* UnicharUtil.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -29,6 +30,8 @@
 		4940082C12FEAFA90050DD3E /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = /System/Library/Frameworks/JavaScriptCore.framework; sourceTree = "<absolute>"; };
 		4940082F12FEAFD90050DD3E /* JavaScriptEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JavaScriptEngine.h; sourceTree = "<group>"; };
 		4940083012FEAFD90050DD3E /* JavaScriptEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaScriptEngine.m; sourceTree = "<group>"; };
+		49817B18131BBB0D00BCEFA7 /* HistoryRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryRing.h; sourceTree = "<group>"; };
+		49817B19131BBB0D00BCEFA7 /* HistoryRing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryRing.m; sourceTree = "<group>"; };
 		49966FEB12FD6588004DAD35 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		49966FEC12FD6588004DAD35 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
 		49D3C85E13024AFC00DA507B /* UnicharUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnicharUtil.h; sourceTree = "<group>"; };
@@ -59,6 +62,8 @@
 				4940083012FEAFD90050DD3E /* JavaScriptEngine.m */,
 				49D3C85E13024AFC00DA507B /* UnicharUtil.h */,
 				49D3C85F13024AFC00DA507B /* UnicharUtil.m */,
+				49817B18131BBB0D00BCEFA7 /* HistoryRing.h */,
+				49817B19131BBB0D00BCEFA7 /* HistoryRing.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 				49966FED12FD6588004DAD35 /* Controller.m in Sources */,
 				4940083112FEAFD90050DD3E /* JavaScriptEngine.m in Sources */,
 				49D3C86013024AFC00DA507B /* UnicharUtil.m in Sources */,
+				49817B1A131BBB0D00BCEFA7 /* HistoryRing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

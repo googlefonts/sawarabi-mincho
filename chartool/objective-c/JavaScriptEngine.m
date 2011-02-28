@@ -165,7 +165,7 @@ static JSValueRef jsOpenFile(JSContextRef ctx,
 	[super release];
 }
 
-- (void) executeScriptAtIndex:(int)index withProperty:(NSString *)property AndModifier:(int)modifier {
+- (void) executeScriptAtIndex:(int)index withProperty:(NSString *)property andModifier:(int)modifier {
 	JSObjectRef object = JSContextGetGlobalObject(context);
 	JSStringRef nm = JSStringCreateWithUTF8CString("script");
 	JSValueRef script = JSObjectGetProperty(context, object, nm, NULL);

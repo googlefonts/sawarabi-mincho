@@ -13,6 +13,7 @@
 - (id) init {
 	engine = [JavaScriptEngine instance];
 	charUtil = [UnicharUtil instance];
+	history = [HistoryRing instance];
 	return [super init];
 }
 
@@ -104,6 +105,12 @@
 	if (command == @selector(insertNewline:)) {
 		[self search: control];
 		return YES;
+	} else if (command == @selector(moveUp:)) {
+		NSString* v = [history previous];
+		if (v) [searchField setStringValue: v];
+	} else if (command == @selector(moveDown:)) {
+		NSString* v = [history next];
+		if (v) [searchField setStringValue: v];
 	}
 	return NO;
 }
@@ -126,13 +133,15 @@
 
 	NSString* code = [charUtil getCharCodeFromUnichar: ch];
 	[codeField setStringValue: code];
+
+	[history append: text];
 }
 
 - (IBAction) clickScriptButton: (id) sender {
 	int tag = [sender tag];
 	NSString* p = [tag == 0 ? codeField : nameField stringValue];
 	NSUInteger m = [NSEvent modifierFlags];
-	[engine executeScriptAtIndex: tag withProperty: p AndModifier: m];
+	[engine executeScriptAtIndex: tag withProperty: p andModifier: m];
 }
 
 - (IBAction) copyGlyphCharacter: (id) sender {
@@ -144,7 +153,8 @@
 }
 
 - (IBAction) changeFont: (id) sender {
-	currentFont = [sender title];
+	[currentFont autorelease];
+	currentFont = [[sender title] retain];
 	if (currentCharacter != nil) {
 		[self drawOnGlyphView: currentCharacter];
 	}

@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "JavaScriptEngine.h"
 #import "UnicharUtil.h"
+#import "HistoryRing.h"
 
 @interface Controller : NSObject {
 	IBOutlet NSTextField* searchField;
@@ -21,6 +22,7 @@
 	NSString* currentFont;
 	JavaScriptEngine* engine;
 	UnicharUtil* charUtil;
+	HistoryRing* history;
 }
 - (IBAction) search:(id)sender;
 - (IBAction) clickScriptButton: (id)sender;

@@ -16,6 +16,6 @@
 + (JavaScriptEngine *) instance;
 - (NSString *) evaluate: (NSString *) script;
 - (NSArray *) fontNamesWithArray;
-- (void) executeScriptAtIndex: (int) index withProperty: (NSString*) property AndModifier: (int) modifier;
+- (void) executeScriptAtIndex: (int) index withProperty: (NSString*) property andModifier: (int) modifier;
 
 @end
