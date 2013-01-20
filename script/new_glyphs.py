@@ -1,53 +1,50 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import fontforge
+# $Id$
+# Author: mshio <mshio@users.sourceforge.jp>
+
+__version__ = '0.11'
+
 import os
 import sys
 import tarfile
+from fontparser import FontDiffParser
+from listprinter import SimpleListPrinter
 
-def get_fontfilename_in_archive(string):
-  name = string.split('/')[-1]
-  p = name.split('-')
-  family = p[0]
-  type = p[1]
 
-  return '%s-%s/%s-%s-medium.ttf' % (family, type, family, type)
+def print_new_glyph(archive, newfile, printer=None):
+  def fontfilepath_in_archive(archive_path, weight, ext='ttf'):
+    filenm = archive_path.split('/')[-1]
+    p = filenm.split('-')
+    family_name = p[0]
+    type_name = p[1]
 
-def get_glyph_list(fontfile):
-  ret = []
-  font = fontforge.open(fontfile)
-  for g in font:
-    glyph = font[g]
-    ret.append(glyph.unicode)
-  font.close()
-  return ret
+    return '%s-%s/%s-%s-%s.%s' % (family_name, type_name,
+                                  family_name, type_name, weight, ext)
 
-def remove_dep_item(list1, list2):
-  for l in list1:
-    list2.remove(l)
+  def expand_archive(archive_path, fontfile_path):
+    f = tarfile.open(archive_path, 'r:gz')
+    f.extract(fontfile_path)
 
-  return list2
+  def clean_up(fontfile_path):
+    os.remove(fontfile_path)
+    os.rmdir(fontfile_path.split('/')[0])
 
-def print_result_list(list):
-  out = sys.stdout
-  col = 0
-  dec = 0
-  for n in list:
-    if n < 0 or n > sys.maxunicode:
-      continue
-    if col != 0:
-      out.write('、')
-    col = col + 1
-    out.write(unichr(n).encode('utf-8'))
-    if col == 10:
-      col = 0
-      dec = dec + 1
-      out.write('\n')
-  if col != 0:
-    out.write('\n')
-  out.write('%d chars\n' % (dec * 10 + col))
+  def main(archive, newfile, printer):
+    font_path = fontfilepath_in_archive(archive, 'medium')
+    expand_archive(archive, font_path)
 
+    parser = FontDiffParser(font_path, newfile)
+    diff = parser.get_diff()
+
+    p = printer
+    if p == None: p = SimpleListPrinter(delimiter=0x3001)
+    p.output(diff)
+    print
+    print "%d char(s)" % len(diff)
+
+  main(archive, newfile, printer)
 
 if __name__ == '__main__':
   if len(sys.argv) != 3:
@@ -57,15 +54,4 @@ if __name__ == '__main__':
   archive = sys.argv[1]
   newfile = sys.argv[2]
 
-  fontfile = get_fontfilename_in_archive(archive)
-  f = tarfile.open(archive, 'r:gz')
-  f.extract(fontfile)
-
-  oldglyphs = get_glyph_list(fontfile)
-  newglyphs = get_glyph_list(newfile)
-
-  result = remove_dep_item(oldglyphs, newglyphs)
-  print_result_list(result)
-
-  os.remove(fontfile)
-  os.rmdir(fontfile.split('/')[0])
+  print_new_glyph(archive, newfile)

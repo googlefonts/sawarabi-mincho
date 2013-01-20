@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # $Id$
@@ -28,11 +29,12 @@
 このスクリプトを実行するには、FontForge が必要です。
 """
 
-__version__ = '0.10'
+__version__ = '0.11'
 
-from types import MethodType
-import fontforge
 import sys
+from types import MethodType
+from fontparser import FontParser
+from listprinter import SimpleListPrinter
 
 class KanjiList:
     def __init__(self, file_path):
@@ -56,38 +58,9 @@ class KanjiList:
         fh.close()
         return self.buffer
 
-class FontForgeCharList:
-    def __init__(self, font_path):
-        self.forge = fontforge.open(font_path)
-
-    def loop(self, method):
-        self.proc = MethodType(method, self, FontForgeCharList)
-        f = self.forge
-        for g in f:
-            if g[0] != '.' and f[g].unicode > 0:
-                self.proc(f[g])
-
-class ListPrinter:
-    def __init__(self, col, out):
-        self.col = col
-        self.out = out
-
-    def output(self, list):
-        col = 0
-        n = 0
-        for c in list:
-            col += 1
-            n += 1
-            self.out.write(unichr(c).encode('utf-8'))
-            if col == self.col:
-                col = 0
-                self.out.write('\n')
-            else:
-                self.out.write(' ')
-        return n
 
 if __name__ == '__main__':
-    forge = FontForgeCharList(sys.argv[1])
+    parser = FontParser(sys.argv[1])
     kanji_list = KanjiList(sys.argv[2]).read()
 
     def remove(self, char):
@@ -96,9 +69,9 @@ if __name__ == '__main__':
                 kanji_list.remove(c)
                 break
 
-    forge.loop(remove)
+    parser.parse(remove)
 
-    p = ListPrinter(10, sys.stdout)
-    count = p.output(kanji_list)
+    p = SimpleListPrinter(delimiter=0x3001)
+    p.output(kanji_list)
     print
-    print "%d char(s)" % count
+    print "%d char(s)" % len(kanji_list)
