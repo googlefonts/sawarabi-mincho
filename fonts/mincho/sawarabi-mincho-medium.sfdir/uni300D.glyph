@@ -1,0 +1,19 @@
+
+StartChar: uni300D
+Encoding: 12301 12301 1097
+Width: 1000
+GlyphClass: 2
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+508 681 m 1,0,-1
+ 508 -120 l 1,1,-1
+ 70 -120 l 1,2,-1
+ 70 -57 l 1,3,-1
+ 445 -57 l 1,4,-1
+ 445 681 l 1,5,-1
+ 508 681 l 1,0,-1
+EndSplineSet
+Substitution2: "'vert' +fiZm+DBNW1dfYjAQXsNrYjAR lookup 0-1" uni300D.vert
+EndChar

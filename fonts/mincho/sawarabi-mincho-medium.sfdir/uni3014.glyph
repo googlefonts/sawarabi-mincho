@@ -1,0 +1,21 @@
+
+StartChar: uni3014
+Encoding: 12308 12308 1104
+Width: 1000
+GlyphClass: 2
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+578 -34 m 1,0,-1
+ 578 644 l 1,1,-1
+ 875 784 l 1,2,-1
+ 910 709 l 1,3,-1
+ 661 592 l 1,4,-1
+ 661 19 l 1,5,-1
+ 910 -98 l 1,6,-1
+ 875 -173 l 1,7,-1
+ 578 -34 l 1,0,-1
+EndSplineSet
+Substitution2: "'vert' +fiZm+DBNW1dfYjAQXsNrYjAR lookup 0-1" uni3014.vert
+EndChar

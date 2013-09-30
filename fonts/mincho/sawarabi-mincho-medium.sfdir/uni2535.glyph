@@ -1,0 +1,22 @@
+
+StartChar: uni2535
+Encoding: 9525 9525 538
+Width: 1000
+GlyphClass: 2
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+526 990 m 1,0,-1
+ 526 395 l 1,1,-1
+ 1000 395 l 1,2,-1
+ 1000 345 l 1,3,-1
+ 525 345 l 1,4,-1
+ 525 304 l 1,5,-1
+ 0 304 l 1,6,-1
+ 0 436 l 1,7,-1
+ 475 436 l 1,8,-1
+ 475 990 l 1,9,-1
+ 526 990 l 1,0,-1
+EndSplineSet
+EndChar
