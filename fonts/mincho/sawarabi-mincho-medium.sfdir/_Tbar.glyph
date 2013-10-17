@@ -1,3 +1,4 @@
+
 StartChar: Tbar
 Encoding: 358 358 296
 Width: 773
@@ -38,4 +39,5 @@ SplineSet
  431 317 l 1,35,-1
  569 317 l 1,0,-1
 EndSplineSet
+Validated: 1
 EndChar

@@ -1,3 +1,4 @@
+
 StartChar: uni2532
 Encoding: 9522 9522 535
 Width: 1000
@@ -18,4 +19,5 @@ SplineSet
  434 -250 l 1,9,-1
  434 345 l 1,0,-1
 EndSplineSet
+Validated: 1
 EndChar

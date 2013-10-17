@@ -1,3 +1,4 @@
+
 StartChar: uni26CA
 Encoding: 9930 9930 805
 Width: 1000
@@ -6,4 +7,5 @@ Flags: W
 LayerCount: 2
 Fore
 Refer: 737 9751 N -1 0 0 -1 1000 738 2
+Validated: 1
 EndChar

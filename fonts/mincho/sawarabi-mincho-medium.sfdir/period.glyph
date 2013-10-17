@@ -1,3 +1,4 @@
+
 StartChar: period
 Encoding: 46 46 17
 Width: 312
@@ -16,4 +17,5 @@ SplineSet
  129 -6 129 -6 110 13 c 128,-1,0
  91 32 91 32 91 59 c 128,-1,1
 EndSplineSet
+Validated: 1
 EndChar

@@ -1,3 +1,4 @@
+
 StartChar: yen
 Encoding: 165 165 103
 Width: 866
@@ -51,4 +52,5 @@ SplineSet
  489 201 l 1,48,-1
  489 75 l 1,0,1
 EndSplineSet
+Validated: 1
 EndChar

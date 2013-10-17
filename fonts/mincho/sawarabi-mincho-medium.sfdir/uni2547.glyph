@@ -1,3 +1,4 @@
+
 StartChar: uni2547
 Encoding: 9543 9543 556
 Width: 1000
@@ -20,4 +21,5 @@ SplineSet
  0 436 l 1,11,-1
  434 436 l 1,0,-1
 EndSplineSet
+Validated: 1
 EndChar

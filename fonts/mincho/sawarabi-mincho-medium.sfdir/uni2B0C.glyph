@@ -1,3 +1,4 @@
+
 StartChar: uni2B0C
 Encoding: 11020 11020 1085
 Width: 1000
@@ -18,4 +19,5 @@ SplineSet
  700 304 l 1,9,-1
  299 304 l 1,0,-1
 EndSplineSet
+Validated: 1
 EndChar

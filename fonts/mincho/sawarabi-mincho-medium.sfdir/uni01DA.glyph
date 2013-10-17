@@ -1,3 +1,4 @@
+
 StartChar: uni01DA
 Encoding: 474 474 370
 Width: 552
@@ -8,4 +9,5 @@ Fore
 Refer: 460 780 N 1 0 0 1 93 -100 2
 Refer: 457 776 N 1 0 0 1 100 -230 2
 Refer: 88 117 N 1 0 0 1 0 0 2
+Validated: 1
 EndChar

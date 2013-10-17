@@ -1,3 +1,4 @@
+
 StartChar: uni30CC
 Encoding: 12492 12492 1250
 Width: 1000
@@ -52,4 +53,5 @@ SplineSet
  373 80 373 80 162 -5 c 0,66,67
  157 -7 157 -7 150 -7 c 0,0,1
 EndSplineSet
+Validated: 1
 EndChar

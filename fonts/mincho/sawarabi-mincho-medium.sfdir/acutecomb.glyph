@@ -1,3 +1,4 @@
+
 StartChar: acutecomb
 Encoding: 769 769 451
 Width: 270
@@ -15,4 +16,5 @@ SplineSet
  30 786 l 1,7,-1
  151 948 l 1,0,1
 EndSplineSet
+Validated: 1
 EndChar

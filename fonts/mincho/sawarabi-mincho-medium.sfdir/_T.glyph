@@ -1,3 +1,4 @@
+
 StartChar: T
 Encoding: 84 84 55
 Width: 773
@@ -30,4 +31,5 @@ SplineSet
  461 688 l 1,26,27
  435 674 435 674 431 644 c 1,0,-1
 EndSplineSet
+Validated: 1
 EndChar

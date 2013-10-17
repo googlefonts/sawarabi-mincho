@@ -1,3 +1,4 @@
+
 StartChar: triaglf
 Encoding: 9668 9668 667
 Width: 1000
@@ -11,4 +12,5 @@ SplineSet
  852 216 l 1,2,-1
  148 407 l 1,0,-1
 EndSplineSet
+Validated: 1
 EndChar

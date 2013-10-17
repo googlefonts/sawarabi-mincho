@@ -1,3 +1,4 @@
+
 StartChar: acute
 Encoding: 180 180 118
 Width: 270
@@ -15,4 +16,5 @@ SplineSet
  30 584 l 1,7,-1
  151 746 l 1,0,1
 EndSplineSet
+Validated: 1
 EndChar

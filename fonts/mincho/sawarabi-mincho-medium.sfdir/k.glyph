@@ -1,3 +1,4 @@
+
 StartChar: k
 Encoding: 107 107 78
 Width: 595
@@ -39,4 +40,5 @@ SplineSet
  178 201 l 1,34,-1
  178 75 l 1,0,1
 EndSplineSet
+Validated: 1
 EndChar

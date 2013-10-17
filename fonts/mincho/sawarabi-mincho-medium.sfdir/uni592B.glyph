@@ -1,3 +1,4 @@
+
 StartChar: uni592B
 Encoding: 22827 22827 1507
 Width: 1000
@@ -50,4 +51,5 @@ SplineSet
  548 368 l 1,58,59
  619 135.2 619 135.2 955 4 c 1,0,1
 EndSplineSet
+Validated: 1
 EndChar

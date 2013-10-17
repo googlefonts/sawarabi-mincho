@@ -1,3 +1,4 @@
+
 StartChar: uni25DC
 Encoding: 9692 9692 687
 Width: 1000
@@ -16,4 +17,5 @@ SplineSet
  206 664 206 664 298.5 718 c 128,-1,9
  391 772 391 772 501 772 c 1,0,-1
 EndSplineSet
+Validated: 1
 EndChar

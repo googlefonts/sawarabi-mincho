@@ -1,3 +1,4 @@
+
 StartChar: uni021B
 Encoding: 539 539 429
 Width: 369
@@ -7,4 +8,5 @@ LayerCount: 2
 Fore
 Refer: 466 806 N 1 0 0 1 78 0 2
 Refer: 87 116 N 1 0 0 1 0 0 2
+Validated: 1
 EndChar

@@ -1,3 +1,4 @@
+
 StartChar: uni2820
 Encoding: 10272 10272 849
 Width: 500
@@ -16,4 +17,5 @@ SplineSet
  382 230 382 230 358.5 230 c 128,-1,0
  335 230 335 230 311.5 253.5 c 128,-1,1
 EndSplineSet
+Validated: 1
 EndChar

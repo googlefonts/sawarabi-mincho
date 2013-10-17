@@ -1,3 +1,4 @@
+
 StartChar: triagdn
 Encoding: 9660 9660 659
 Width: 1000
@@ -11,4 +12,5 @@ SplineSet
  898 759 l 1,2,-1
  500 55 l 1,0,-1
 EndSplineSet
+Validated: 1
 EndChar

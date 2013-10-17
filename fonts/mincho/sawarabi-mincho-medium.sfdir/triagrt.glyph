@@ -1,3 +1,4 @@
+
 StartChar: triagrt
 Encoding: 9658 9658 657
 Width: 1000
@@ -11,4 +12,5 @@ SplineSet
  148 598 l 1,2,-1
  852 407 l 1,0,-1
 EndSplineSet
+Validated: 1
 EndChar

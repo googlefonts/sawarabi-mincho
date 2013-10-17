@@ -1,3 +1,4 @@
+
 StartChar: uni3008.vert
 Encoding: 65541 -1 1537
 Width: 1000
@@ -5,4 +6,5 @@ Flags: W
 LayerCount: 2
 Fore
 Refer: 1092 12296 N 0 -1 1 0 196 891 2
+Validated: 1
 EndChar

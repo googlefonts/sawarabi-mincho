@@ -1,3 +1,4 @@
+
 StartChar: uni00B5
 Encoding: 181 181 119
 Width: 538
@@ -27,4 +28,5 @@ SplineSet
  178 -15 178 -15 133 35 c 1,26,-1
  133 -170 l 1,0,-1
 EndSplineSet
+Validated: 1
 EndChar

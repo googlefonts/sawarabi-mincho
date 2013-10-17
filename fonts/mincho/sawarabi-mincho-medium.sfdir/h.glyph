@@ -1,3 +1,4 @@
+
 StartChar: h
 Encoding: 104 104 75
 Width: 603
@@ -38,4 +39,5 @@ SplineSet
  168 740 l 1,36,-1
  168 406 l 1,0,1
 EndSplineSet
+Validated: 1
 EndChar

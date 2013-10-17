@@ -20,7 +20,7 @@ OS2Version: 2
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1228014099
-ModificationTime: 1381757343
+ModificationTime: 1382047319
 PfmFamily: 17
 TTFWeight: 500
 TTFWidth: 5
@@ -53,7 +53,7 @@ OS2StrikeYPos: 258
 OS2Vendor: 'PfEd'
 OS2CodePages: 40020000.c0000000
 OS2UnicodeRanges: 80000001.08077800.00040000.00000000
-Lookup: 1 0 0 "'vert' +fiZm+DBNW1dfYjAQXsNrYjAR lookup 0"  {"'vert' +fiZm+DBNW1dfYjAQXsNrYjAR lookup 0-1"  } ['vert' ('DFLT' <'dflt' > 'brai' <'dflt' > 'hani' <'dflt' > 'kana' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'vert' lookup 0"  {"'vert' lookup 0-1"  } ['vert' ('DFLT' <'dflt' > 'brai' <'dflt' > 'hani' <'dflt' > 'kana' <'dflt' > 'latn' <'dflt' > ) ]
 MarkAttachClasses: 1
 DEI: 91125
 TtTable: prep
@@ -575,7 +575,7 @@ NameList: Adobe Glyph List
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 39120 8 4
+WinInfo: 32016 8 4
 BeginPrivate: 0
 EndPrivate
 TeXData: 1 0 0 314572 157286 104857 524288 1048576 104857 783286 444596 497025 792723 393216 433062 380633 303038 157286 324010 404750 52429 2506097 1059062 262144

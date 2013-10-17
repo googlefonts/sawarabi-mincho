@@ -1,3 +1,4 @@
+
 StartChar: dotlessi
 Encoding: 305 305 243
 Width: 285
@@ -21,4 +22,5 @@ SplineSet
  185 520 l 1,14,-1
  185 75 l 1,0,1
 EndSplineSet
+Validated: 1
 EndChar

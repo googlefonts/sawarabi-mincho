@@ -1,3 +1,4 @@
+
 StartChar: SF270000
 Encoding: 9564 9564 573
 Width: 1000
@@ -18,4 +19,5 @@ SplineSet
  0 395 l 1,9,-1
  384 395 l 1,0,-1
 EndSplineSet
+Validated: 1
 EndChar

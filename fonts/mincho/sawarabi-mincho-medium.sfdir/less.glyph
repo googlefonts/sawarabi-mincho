@@ -1,3 +1,4 @@
+
 StartChar: less
 Encoding: 60 60 31
 Width: 525
@@ -14,4 +15,5 @@ SplineSet
  490 18 l 1,5,-1
  35 294 l 1,0,-1
 EndSplineSet
+Validated: 1
 EndChar

@@ -1,3 +1,4 @@
+
 StartChar: hbar
 Encoding: 295 295 233
 Width: 603
@@ -46,4 +47,5 @@ SplineSet
  168 539 l 1,42,-1
  168 406 l 1,0,1
 EndSplineSet
+Validated: 1
 EndChar

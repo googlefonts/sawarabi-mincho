@@ -1,3 +1,4 @@
+
 StartChar: uni0198
 Encoding: 408 408 330
 Width: 880
@@ -50,4 +51,5 @@ SplineSet
  247 297 l 1,52,-1
  247 75 l 1,0,1
 EndSplineSet
+Validated: 1
 EndChar

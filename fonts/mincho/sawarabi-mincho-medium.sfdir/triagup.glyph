@@ -1,3 +1,4 @@
+
 StartChar: triagup
 Encoding: 9650 9650 649
 Width: 1000
@@ -11,4 +12,5 @@ SplineSet
  102 55 l 1,2,-1
  500 759 l 1,0,-1
 EndSplineSet
+Validated: 1
 EndChar
