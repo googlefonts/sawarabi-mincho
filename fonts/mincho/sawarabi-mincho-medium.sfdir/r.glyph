@@ -1,4 +1,3 @@
-
 StartChar: r
 Encoding: 114 114 85
 Width: 439
@@ -30,5 +29,4 @@ SplineSet
  185 372 l 1,26,27
  244 515 244 515 380 515 c 2,0,-1
 EndSplineSet
-Validated: 1
 EndChar

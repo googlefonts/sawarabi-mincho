@@ -1,4 +1,3 @@
-
 StartChar: lslash
 Encoding: 322 322 260
 Width: 382
@@ -30,5 +29,4 @@ SplineSet
  228 436 l 1,21,-1
  366 475 l 1,0,-1
 EndSplineSet
-Validated: 1
 EndChar

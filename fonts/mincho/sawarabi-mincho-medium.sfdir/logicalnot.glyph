@@ -1,4 +1,3 @@
-
 StartChar: logicalnot
 Encoding: 172 172 110
 Width: 529
@@ -15,5 +14,4 @@ SplineSet
  490 395 l 1,5,-1
  490 139 l 1,0,-1
 EndSplineSet
-Validated: 1
 EndChar

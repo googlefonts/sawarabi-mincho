@@ -1,4 +1,3 @@
-
 StartChar: uni3063
 Encoding: 12387 12387 1149
 Width: 1000
@@ -32,6 +31,5 @@ SplineSet
  120 433 120 433 120 451.5 c 128,-1,38
  120 470 120 470 134 470 c 0,0,1
 EndSplineSet
-Validated: 1
-Substitution2: "'vert' lookup 0-1" uni3063.vert
+Substitution2: "'vert' +fiZm+DBNW1dfYjAQXsNrYjAR lookup 0-1" uni3063.vert
 EndChar

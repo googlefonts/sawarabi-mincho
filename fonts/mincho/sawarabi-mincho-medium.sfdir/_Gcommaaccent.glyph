@@ -1,4 +1,3 @@
-
 StartChar: Gcommaaccent
 Encoding: 290 290 228
 Width: 790
@@ -8,5 +7,4 @@ LayerCount: 2
 Fore
 Refer: 466 806 N 1 0 0 1 279 0 2
 Refer: 42 71 N 1 0 0 1 0 0 2
-Validated: 1
 EndChar

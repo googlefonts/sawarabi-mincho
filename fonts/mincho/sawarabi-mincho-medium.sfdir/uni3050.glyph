@@ -1,4 +1,3 @@
-
 StartChar: uni3050
 Encoding: 12368 12368 1130
 Width: 1000
@@ -8,5 +7,4 @@ LayerCount: 2
 Fore
 Refer: 1129 12367 N 1 0 0 1 -9 0 2
 Refer: 1203 12443 N 1 0 0 1 -33 -118 2
-Validated: 1
 EndChar
