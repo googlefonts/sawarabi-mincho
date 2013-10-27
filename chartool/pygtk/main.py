@@ -4,7 +4,6 @@
 import gtk
 import os
 import pygtk
-import re
 
 
 class Controller:
@@ -67,8 +66,6 @@ class Controller:
 
 
 class SearchAction:
-    re_hex = re.compile(r"[0-9a-fA-F]")
-
     def __init__(self, entry_search):
         self.entry_search = entry_search
         self.char_util = CharUtil()
@@ -82,7 +79,7 @@ class SearchAction:
 
         pos = en.get_position()
         if pos == len(buf): pos = 0
-        region = self.get_target_region(buf, pos)
+        region = self.char_util.get_target_region(buf, pos)
         target = buf[region[0]:region[1]]
         en.select_region(region[0], region[1])
         ch = self.char_util.get_unichar(target)
@@ -102,22 +99,6 @@ class SearchAction:
         mu = '<span font="%s">%s</span>' % (font_name, self.char)
         label.set_markup(mu)
 
-    def get_target_region(self, text, pos):
-        ch = text[pos:pos + 1]
-        rlen = 0
-        llen = 0
-        while rlen <= 4 and self.char_util.is_hex_char(ch):
-            rlen += 1
-            if pos + rlen >= len(text): break
-            ch = text[(pos + rlen):(pos + rlen + 1)]
-        if rlen >= 1 and rlen < 5:
-            while rlen + llen <= 4 and pos - llen > 0:
-                ch = text[(pos - llen - 1):(pos - llen)]
-                if not self.char_util.is_hex_char(ch): break
-                llen += 1
-        ret = (pos - llen, pos + rlen)
-        if ret == (pos, pos): return (pos, pos + 1)
-        return ret
 
 class CharUtil:
     def is_hex_char(self, char):
@@ -129,6 +110,23 @@ class CharUtil:
         if len(buf) <= 1: return buf
 
         return unichr(int(buf, 16))
+
+    def get_target_region(self, text, pos):
+        ch = text[pos:pos + 1]
+        rlen = 0
+        llen = 0
+        while rlen <= 4 and self.is_hex_char(ch):
+            rlen += 1
+            if pos + rlen >= len(text): break
+            ch = text[(pos + rlen):(pos + rlen + 1)]
+        if rlen >= 1 and rlen < 5:
+            while rlen + llen <= 4 and pos - llen > 0:
+                ch = text[(pos - llen - 1):(pos - llen)]
+                if not self.is_hex_char(ch): break
+                llen += 1
+        ret = (pos - llen, pos + rlen)
+        if ret == (pos, pos): return (pos, pos + 1)
+        return ret
 
 
 if __name__ == '__main__':
