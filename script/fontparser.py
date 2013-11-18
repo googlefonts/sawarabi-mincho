@@ -37,3 +37,21 @@ class FontDiffParser:
         FontParser(self.font_path[1]).parse(collect)
 
         return buf
+
+class KanjiParser:
+    def __init__(self, font_path):
+        self.font_path = font_path
+
+    def get_list(self):
+        buf = []
+
+        def collect(self, glyph):
+            code = glyph.unicode
+            # roughly
+            if code >= 0x4e00 and code <= 0x9fff:
+              buf.append(code)
+
+        FontParser(self.font_path).parse(collect)
+
+        return buf
+

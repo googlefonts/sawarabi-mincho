@@ -37,12 +37,13 @@ def print_new_glyph(archive, newfile, printer=None):
 
     parser = FontDiffParser(font_path, newfile)
     diff = parser.get_diff()
+    clean_up(font_path)
 
     p = printer
     if p == None: p = SimpleListPrinter(delimiter=0x3001)
     p.output(diff)
-    print
-    print "%d char(s)" % len(diff)
+    print >>p.out
+    print >>p.out, "%d char(s)" % len(diff)
 
   main(archive, newfile, printer)
 

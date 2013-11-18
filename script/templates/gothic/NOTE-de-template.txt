@@ -1,0 +1,8 @@
+Sawarabi Gothic ist eine japanische Schriftart, die unter die Creative-Commons-Lizenz verteilt werden. Diese Schriftart hat wesentlich Hiragana, Katakana, Alphabetes und so weiter, aber es fehlt ihm viele Glyphen wie Kanji.
+Die folgende Liste zeigt die %(new_kanji_count)s Schriftzeichen, die in dieser Version hinzugefügt wurden:
+
+%(new_kanji_list)s
+
+Die folgende Liste zeigt das alles vom Kanji, der in dieser Schriftart enthalten wird:
+
+%(kanji_list)s
