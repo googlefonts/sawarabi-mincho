@@ -1,6 +1,6 @@
 StartChar: j
 Encoding: 106 106 77
-Width: 242
+Width: 245
 GlyphClass: 2
 Flags: W
 LayerCount: 2
@@ -30,5 +30,4 @@ SplineSet
  92 608 92 608 72.5 627.5 c 128,-1,18
  53 647 53 647 53 674 c 128,-1,19
 EndSplineSet
-Validated: 1
 EndChar
