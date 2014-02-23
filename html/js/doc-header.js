@@ -8,6 +8,8 @@ $(document).ready(function() {
 		kyoikuKanji: '教育漢字',
 		level1st: '第一水準漢字',
 		level2nd: '第二水準漢字',
+		level3rd: '第三水準漢字',
+		level4th: '第四水準漢字',
 	    },
 	    en: {
 		title: ['Kanji Coverage (Sawarabi Gothic)',
@@ -16,14 +18,18 @@ $(document).ready(function() {
 		kyoikuKanji: 'Kyoiku Kanji',
 		level1st: '1st Level',
 		level2nd: '2nd Level',
+		level3rd: '3rd Level',
+		level4th: '4th Level',
 	    },
 	    de: {
 		title: ['Kanji Coverage (Sawarabi Gothic)',
 			'Kanji Coverage (Sawarabi Mincho)',
 		       ],
 		kyoikuKanji: 'Kyoiku Kanji',
-		level1st: '1st Level',
-		level2nd: '2nd Level',
+		level1st: 'Niveau 1.',
+		level2nd: 'Niveau 2.',
+		level3rd: 'Niveau 3.',
+		level4th: 'Niveau 4.',
 	    },
 	};
 	var texts = TEXTS[langKey];
@@ -75,6 +81,7 @@ $(document).ready(function() {
 		var rate = (frame || 1) / (frames || 1);
 		var value = this.performance * rate;
 		var width = this.__calcWidth(value);
+		if (width <= 1) return;
 		ctx.fillStyle = this.fillColor;
 		ctx.fillRect(this.getX() + 1, this.getY(), width - 1, this.height);
 	    },
@@ -92,7 +99,7 @@ $(document).ready(function() {
 		var x = this.x + 
 		    (width > label.getWidth() ? 
 		     (width - label.getWidth()) / 2 : (width + 10));
-		label.setPosition(x, this.y + 18);
+		label.setPosition(x, this.y + 14);
 		label.draw();
 	    },
 	    setPosition: function(x, y) {
@@ -150,19 +157,21 @@ $(document).ready(function() {
 	    },
 	    __setupGraphs: function() {
 		var kanjis = {
-		    kyoikuKanji: 1006, 
-		    level1st: 2965, 
+		    kyoikuKanji: 1006,
+		    level1st: 2965,
 		    level2nd: 3390,
-		};
-		var y = 50;
+		    level3rd: 1259,
+		    level4th: 2436,
+		}
+		var y = 45;
 		for (var key in kanjis) {
 		    var label = new Label(texts[key]);
-		    label.font = "18px Sans";
-		    label.setPosition(0, y + 20);
-		    var graph = new GraphBar(28, kanjis[key], this.data[key]);
+		    label.font = "16px Sans";
+		    label.setPosition(0, y + 15);
+		    var graph = new GraphBar(18, kanjis[key], this.data[key]);
 		    graph.setPosition(130, y);
 		    this.__addGraph(label, graph);
-		    y += 50;
+		    y += 30;
 		}
 	    },
 	    __beforeAnimation: function() {
@@ -249,7 +258,6 @@ $(document).ready(function() {
 	if (! canvas || ! canvas.getContext) return false;
 
         var kanjiCounts = getNumOfKanjis();
-        console.log(kanjiCounts);
 	var key = $('#current-lang').attr('data-key');
 	var headerScreen = new DocHeaderScreen(canvas, key, kanjiCounts);
 	var container = $("#docs-header .buttons-container .inner-container");
