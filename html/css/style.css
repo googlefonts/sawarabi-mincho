@@ -1,0 +1,102 @@
+body {
+  background-color: #fff;
+  margin: 0;
+}
+header .container { width: 100%; }
+header .container div#navbar {
+  width: 680px;
+  height: 66px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+header .container div#navbar div { float: left; }
+header .container div#navbar div.logo {
+  padding-top: 7px;
+}
+header .container div#navbar div#lang {
+  float: right;
+}
+header .container div#navbar div#lang div.container {
+  position: absolute;
+  top: 66px;
+  width: 110px;
+  display: none;
+  box-shadow: 1px 2px 2px #000;
+}
+header .container div#navbar div#lang div.item {
+  padding: 26px 1em 0 1em;
+  width: 80px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #fff;
+  font-size: 90%;
+}
+header .container div#navbar div#lang div.item:hover {
+  background-color: #c8c8c8;
+}
+header .container div#navbar div#lang div#current-lang {
+  text-align: center;
+}
+div#docs-header {
+  background-color: #084;
+  width: 100%;
+  height: 300px;
+}
+div#docs-header .container {
+  width: 680px;
+  height: 300px;
+  margin: 0 auto;
+  background-color: #0a4;
+}
+div#docs-header .container .buttons-container {
+  position: absolute;
+}
+div#docs-header .container .buttons-container .inner-container {
+  position: relative;
+  left: 600px;
+  top: 260px;
+}
+div#docs-header .container .buttons-container .button {
+  padding: .25em .5em;
+  background-color: #fff;
+  float: left;
+  font-family: Arial;
+  font-size: 10pt;
+  margin: 1px 1px;
+  cursor: pointer;
+}
+div#docs-header .container .buttons-container .pressed {
+  background-color: #c8c8c8;
+}
+div#docs .container {
+  width: 650px;
+  margin: 0 auto;
+  padding: 10px 15px;
+  background-color: #fff;
+  font-size: 90%;
+}
+article h2 {
+  color: #094;
+  padding-top: 1em;
+  font-size: 125%;
+}
+
+div#download-box {
+  width: 380px;
+}
+footer div.container {
+  margin: 2em .5em .5em .5em;
+  padding: .5em .5em;
+  border-top: 1px solid #c8c8c8;
+}
+
+a {
+  color: #094;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a img {
+  border: 0;
+}
