@@ -16,10 +16,10 @@ $(document).ready(function() {
 			'Kanji Coverage (Sawarabi Mincho)',
 		       ],
 		kyoikuKanji: 'Kyoiku Kanji',
-		level1st: '1st Level',
-		level2nd: '2nd Level',
-		level3rd: '3rd Level',
-		level4th: '4th Level',
+		level1st: 'JIS 1st Level',
+		level2nd: 'JIS 2nd Level',
+		level3rd: 'JIS 3rd Level',
+		level4th: 'JIS 4th Level',
 	    },
 	    de: {
 		title: ['Kanji Coverage (Sawarabi Gothic)',
@@ -88,7 +88,16 @@ $(document).ready(function() {
 	    drawFrame: function() {
 		var width = screen.content.width - this.x;
 		ctx.strokeStyle = this.frameColor;
-		ctx.rect(this.getX(), this.getY() - 1, width + 1, this.height + 2);
+		ctx.beginPath()
+		var x1 = this.getX() + 1;
+		var y1 = this.getY() - 1;
+		var x2 = this.getX() + width + 1;
+		var y2 = this.getY() + this.height + 2;
+		ctx.moveTo(x1, y1);
+		ctx.lineTo(x2, y1);
+		ctx.lineTo(x2, y2);
+		ctx.lineTo(x1, y2);
+		ctx.stroke();
 	    },
 	    drawRate: function() {
 		var rate = this.performance * 1.0 / this.max;
