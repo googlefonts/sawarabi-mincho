@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Traditional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>さわらびフォントの試し書き</title>
+<script defer="defer" type="text/javascript" src="./sie.js"></script>
+<script type="text/javascript" src="./json2.js"></script>
+<script type="text/javascript" src="./sawarabi-sampler.js"></script>
+<link rel="stylesheet" href="./sawarabi-sampler.css" type="text/css"></link>
+</head>
+<body onload="init(6)">
+<div style="max-width: 600px; margin: auto">
+<div id="path">
+<a href="../index.html">トップページ</a> &gt; さわらびゴシック試し書きコーナー
+</div>
+<h1>さわらびゴシック試し書きコーナー</h1>
+<p>自由に<strong>さわらびゴシック</strong>の試し書きをしてみよう！</p>
+<div id="script-enabled">
+<div><img src="img/dolphin-help.png" alt="assistant" id="assistant" 
+     onmouseup="switch_help()"></div>
+<div id="help"></div>
+<div>
+<img src="img/balloon.png" alt="" id="assistant-balloon">
+<img src="img/next-0.png" id="next" alt="次へ"
+     onmouseup="change_message_next()">
+</div>
+<div id="canvas"><br></div>
+<div><br></div>
+<div>
+<tt>テキスト：</tt><input id="input" type="text" maxlength="40"><br>
+<tt>サ イ ズ：</tt><select id="size">
+<option value="min">小</option>
+<option value="mid" selected>中</option>
+<option value="max">大</option>
+</select><br>
+<div id="for_sie"></div>
+<input type="button" value="更新" id="update" onclick="draw_svg()">
+<input type="button" value="クリア" onclick="clear_field()">
+</div>
+</div>
+<noscript>
+<p>
+……というコーナーなのですが、これは JavaScript が有効になっていないと動きません。
+</p>
+<p>
+<a href="../index.html">トップページに戻る</a>
+</p>
+</noscript>
+<div><br></div>
+<div id="hidden" style="display: none">
+<div id="help-msg-1">
+上のテキスト欄に文字を入力して「更新」ボタンを押すと、
+入力した文字が<strong>さわらびゴシック</strong>で表示されます。
+</div>
+<div id="help-msg-2">
+「サイズ」コンボボックスの値を変更すると、文字のサイズを変えることもできます。
+</div>
+<div id="help-msg-3">
+なお、<strong>さわらびゴシック</strong>にまだ収録されていない文字は、
+<a href="http://mplus-fonts.sourceforge.jp" target="_blank">M+ FONTS</a> でグレー表示されるようになっています。
+M+ FONTS にもない文字は「?」と表示されます。
+</div>
+<div id="help-msg-4">
+また、文字の表示はフォントそのものを利用して行っているわけではありません。
+各文字を <a href="http://ja.wikipedia.org/wiki/SVG" target="_blank">SVG</a> に変換して表示しています。
+文字間隔や細かい見え方など、実際と少し違っていることがあります。
+</div>
+<div id="help-msg-5">
+Internet Explorer はまだ未対応の扱いですが、一応動作不能ということもないかもしれません。
+とはいえ、表示結果は仮のものだと思ってください。
+<a href="http://mozilla.jp/firefox/" target="_blank">Mozilla Firefox</a> や
+<a href="http://www.google.com/chrome/?hl=ja" target="_blank">Google
+Chrome</a> などでご覧いただいたほうが綺麗です。
+</div>
+<div id="help-msg-6">
+ちなみに、このアプリケーションで利用させていただいている
+<a href="http://mplus-fonts.sourceforge.jp" target="_blank">M+ FONTS</a>
+は、mplus-TESTFLIGHT-025 の mplus-1p-medium.ttf です。
+それを <a href="http://ja.wikipedia.org/wiki/SVG" target="_blank">SVG</a>
+に変換したものを表示しています。
+</div>
+</div>
+<p>
+<a href="http://sourceforge.jp/"><img src="http://sourceforge.jp/sflogo.php?group_id=3896&type=1" width="96" height="31" border="0" alt="SourceForge.JP"></a>
+</p>
+</div>
+</body>
+</html>
