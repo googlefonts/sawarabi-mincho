@@ -1,0 +1,9 @@
+StartChar: twodotenleader
+Encoding: 8229 8229 879
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+Refer: 878 8228 N 1 0 0 1 252 2 2
+Refer: 878 8228 N 1 0 0 1 -248 0 2
+EndChar

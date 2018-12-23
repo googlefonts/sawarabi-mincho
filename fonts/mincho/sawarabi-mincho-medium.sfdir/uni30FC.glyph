@@ -24,4 +24,6 @@ SplineSet
  714 358 714 358 560 358 c 2,25,-1
  501 358 l 2,0,1
 EndSplineSet
+Validated: 1
+Substitution2: "'vert' lookup 0-1" uni30FC.vert
 EndChar

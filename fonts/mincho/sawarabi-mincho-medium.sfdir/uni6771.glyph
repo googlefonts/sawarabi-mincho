@@ -1,7 +1,6 @@
 StartChar: uni6771
 Encoding: 26481 26481 1484
 Width: 1000
-VWidth: 0
 Flags: W
 LayerCount: 2
 Fore
@@ -86,4 +85,5 @@ SplineSet
  540 456 l 1,100,-1
  733 456 l 1,95,-1
 EndSplineSet
+Validated: 1
 EndChar

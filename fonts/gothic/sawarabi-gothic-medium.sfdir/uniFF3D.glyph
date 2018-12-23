@@ -1,0 +1,19 @@
+StartChar: uniFF3D
+Encoding: 65341 65341 6847
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+50 845 m 1,0,-1
+ 340 845 l 1,1,-1
+ 340 -108 l 1,2,-1
+ 50 -108 l 1,3,-1
+ 50 -25 l 1,4,-1
+ 258 -25 l 1,5,-1
+ 258 762 l 1,6,-1
+ 50 762 l 1,7,-1
+ 50 845 l 1,0,-1
+EndSplineSet
+Substitution2: "<4,0> Vertical Substitution lookup 1 subtable" uniFF3D.vert
+EndChar

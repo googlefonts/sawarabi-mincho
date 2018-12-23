@@ -1,7 +1,6 @@
 StartChar: uni3063
 Encoding: 12387 12387 1149
 Width: 1000
-VWidth: 962
 GlyphClass: 2
 Flags: W
 LayerCount: 2
@@ -32,5 +31,7 @@ SplineSet
  138 424 138 424 138.5 441.5 c 128,-1,38
  139 459 139 459 152 459 c 0,0,1
 EndSplineSet
+Validated: 33
+Substitution2: "'vkna' Vertical Kana Alternates lookup 1-1" uni3063.vert
 Substitution2: "'vert' lookup 0-1" uni3063.vert
 EndChar

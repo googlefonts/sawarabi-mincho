@@ -1,0 +1,16 @@
+StartChar: uniFF64
+Encoding: 65380 65380 6884
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+149 224 m 1,0,-1
+ 222 167 l 2,1,2
+ 243 151 243 151 286 108 c 0,3,4
+ 328 66 328 66 347 30 c 1,5,-1
+ 244 -11 l 1,6,7
+ 198 93 198 93 80 179 c 1,8,-1
+ 149 224 l 1,0,-1
+EndSplineSet
+EndChar

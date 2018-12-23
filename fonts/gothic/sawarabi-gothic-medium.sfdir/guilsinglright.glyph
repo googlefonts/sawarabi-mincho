@@ -1,0 +1,17 @@
+StartChar: guilsinglright
+Encoding: 8250 8250 891
+Width: 584
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+436 294 m 1,0,-1
+ 256 112 l 1,1,-1
+ 149 112 l 1,2,-1
+ 328 295 l 1,3,-1
+ 149 478 l 1,4,-1
+ 256 478 l 1,5,-1
+ 436 294 l 1,0,-1
+EndSplineSet
+Substitution2: "'rtla' Right to Left Alternates in CJK Ideographic lookup 0 subtable" guilsinglleft
+EndChar

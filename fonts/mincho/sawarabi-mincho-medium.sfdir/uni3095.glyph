@@ -84,5 +84,6 @@ SplineSet
  129 421 129 421 130 459 c 0,117,118
  130 477 130 477 147 477 c 2,34,-1
 EndSplineSet
+Validated: 33
 Substitution2: "'vert' lookup 0-1" uni3095.vert
 EndChar

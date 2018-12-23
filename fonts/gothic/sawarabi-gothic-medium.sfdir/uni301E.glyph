@@ -1,0 +1,24 @@
+StartChar: uni301E
+Encoding: 12318 12318 1843
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+263 760 m 1,0,-1
+ 118 567 l 1,1,2
+ 105 557 105 557 96 557 c 0,3,4
+ 80 557 80 557 80 590 c 2,5,-1
+ 80 595 l 1,6,-1
+ 196 808 l 1,7,-1
+ 263 760 l 1,0,-1
+398 760 m 1,8,-1
+ 253 567 l 1,9,10
+ 240 557 240 557 231 557 c 0,11,12
+ 215 557 215 557 215 590 c 2,13,-1
+ 215 595 l 1,14,-1
+ 330 808 l 1,15,-1
+ 398 760 l 1,8,-1
+EndSplineSet
+Substitution2: "<4,0> Vertical Substitution lookup 1 subtable" uni301E.vert
+EndChar

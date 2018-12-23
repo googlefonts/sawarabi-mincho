@@ -1,0 +1,14 @@
+StartChar: lfblock
+Encoding: 9612 9612 1326
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 -280 m 1,0,-1
+ 0 1020 l 1,1,-1
+ 500 1020 l 1,2,-1
+ 500 -280 l 1,3,-1
+ 0 -280 l 1,0,-1
+EndSplineSet
+EndChar

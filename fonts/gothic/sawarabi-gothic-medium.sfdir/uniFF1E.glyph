@@ -1,0 +1,17 @@
+StartChar: uniFF1E
+Encoding: 65310 65310 6816
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+620 374 m 1,0,-1
+ 214 -51 l 1,1,-1
+ 100 -51 l 1,2,-1
+ 506 374 l 1,3,-1
+ 100 800 l 1,4,-1
+ 214 800 l 1,5,-1
+ 620 374 l 1,0,-1
+EndSplineSet
+Substitution2: "<4,0> Vertical Substitution lookup 1 subtable" uniFF1E.vert
+EndChar

@@ -36,4 +36,4 @@ o 注意事項
 
 %(kanji_list)s
 
-Copyright (C) 2008-%(year)d mshio <mshio@users.sourceforge.jp>
+Copyright (C) 2008-%(year)d mshio <mshio@users.osdn.me>

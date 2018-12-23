@@ -1,0 +1,24 @@
+StartChar: parenright
+Encoding: 41 41 12
+Width: 378
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+288 266 m 128,-1,1
+ 288 178 288 178 267 98 c 0,2,3
+ 246 19 246 19 219 -32 c 0,4,5
+ 194 -79 194 -79 153 -129 c 1,6,7
+ 110 -178 110 -178 86 -193 c 1,8,-1
+ 28 -193 l 1,9,10
+ 188 -10 188 -10 190 274 c 1,11,-1
+ 190 275 l 2,12,13
+ 190 558 190 558 28 724 c 1,14,-1
+ 86 724 l 1,15,16
+ 113 708 113 708 153 660 c 0,17,18
+ 194 610 194 610 219 563 c 0,19,20
+ 246 514 246 514 267 434 c 128,-1,0
+ 288 354 288 354 288 266 c 128,-1,1
+EndSplineSet
+Substitution2: "'rtla' Right to Left Alternates in CJK Ideographic lookup 0 subtable" parenleft
+EndChar

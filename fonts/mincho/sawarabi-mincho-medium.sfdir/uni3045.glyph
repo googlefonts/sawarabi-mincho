@@ -1,7 +1,6 @@
 StartChar: uni3045
 Encoding: 12357 12357 1119
 Width: 1000
-VWidth: 965
 GlyphClass: 2
 Flags: W
 LayerCount: 2
@@ -53,5 +52,6 @@ SplineSet
  583 585 583 585 593 581 c 0,69,70
  635 564 635 564 635 536 c 0,44,45
 EndSplineSet
+Validated: 33
 Substitution2: "'vert' lookup 0-1" uni3045.vert
 EndChar

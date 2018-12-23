@@ -1,7 +1,6 @@
 StartChar: uni3078
 Encoding: 12408 12408 1170
 Width: 1000
-VWidth: 968
 GlyphClass: 2
 Flags: W
 LayerCount: 2
@@ -38,4 +37,5 @@ SplineSet
  246 312 246 312 238 304.5 c 128,-1,41
  230 297 230 297 217 297 c 2,0,-1
 EndSplineSet
+Validated: 1
 EndChar

@@ -19,4 +19,4 @@ to see the list of all kanji it has.
 
 This font is provided without warranty.
 
-Copyright (C) 2008-%(year)d mshio <mshio@users.sourceforge.jp>
+Copyright (C) 2008-%(year)d mshio <mshio@users.osdn.me>
