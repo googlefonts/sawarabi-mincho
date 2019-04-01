@@ -23,5 +23,6 @@ SplineSet
  947 -123 l 1,13,-1
  648 358 l 1,7,-1
 EndSplineSet
+Validated: 1
 Substitution2: "'vert' lookup 0-1" uni300A.vert
 EndChar

@@ -19,5 +19,5 @@ SplineSet
  170 470 170 470 215 504 c 0,15,16
  259 538 259 538 311 538 c 0,0,1
 EndSplineSet
-Kerns2: 68 -15 "'kern' Horizontal Kerning lookup 0 subtable" 
+Kerns2: 68 -15 "'kern' Horizontal Kerning lookup 0 subtable"
 EndChar

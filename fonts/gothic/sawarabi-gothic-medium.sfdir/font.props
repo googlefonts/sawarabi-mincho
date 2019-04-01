@@ -10,17 +10,18 @@ UnderlinePosition: -579
 UnderlineWidth: 48
 Ascent: 834
 Descent: 166
+InvalidEm: 0
 sfntRevision: 0x29450000
 LayerCount: 2
-Layer: 0 1 "Back"  1
-Layer: 1 1 "Fore"  0
+Layer: 0 1 "Back" 1
+Layer: 1 1 "Fore" 0
 XUID: [1021 112 241866226 12855735]
 FSType: 0
 OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1227605546
-ModificationTime: 1525700809
+ModificationTime: 1553686575
 PfmFamily: 17
 TTFWeight: 500
 TTFWidth: 5
@@ -54,9 +55,9 @@ OS2FamilyClass: 2054
 OS2Vendor: 'PfEd'
 OS2CodePages: 40020093.cd400000
 OS2UnicodeRanges: 8000006f.08877c29.00000010.00000000
-Lookup: 1 0 0 "'rtla' Right to Left Alternates in CJK Ideographic lookup 0"  {"'rtla' Right to Left Alternates in CJK Ideographic lookup 0 subtable"  } ['rtla' ('DFLT' <'dflt' > 'hani' <'dflt' > ) ]
-Lookup: 1 0 0 "<4,0> Vertical Substitution lookup 1"  {"<4,0> Vertical Substitution lookup 1 subtable" ("vert" ) } [<4,0> ('DFLT' <'dflt' > 'kana' <'dflt' > 'latn' <'dflt' > ) 'vrt2' ('DFLT' <'dflt' > 'kana' <'dflt' > 'latn' <'dflt' > ) ]
-Lookup: 258 0 0 "'kern' Horizontal Kerning lookup 0"  {"'kern' Horizontal Kerning lookup 0 subtable"  } ['kern' ('DFLT' <'dflt' > 'cyrl' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'rtla' Right to Left Alternates in CJK Ideographic lookup 0" { "'rtla' Right to Left Alternates in CJK Ideographic lookup 0 subtable"  } ['rtla' ('DFLT' <'dflt' > 'hani' <'dflt' > ) ]
+Lookup: 1 0 0 "<4,0> Vertical Substitution lookup 1" { "<4,0> Vertical Substitution lookup 1 subtable" ("vert") } [<4,0> ('DFLT' <'dflt' > 'kana' <'dflt' > 'latn' <'dflt' > ) 'vrt2' ('DFLT' <'dflt' > 'kana' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 258 0 0 "'kern' Horizontal Kerning lookup 0" { "'kern' Horizontal Kerning lookup 0 subtable"  } ['kern' ('DFLT' <'dflt' > 'cyrl' <'dflt' > 'latn' <'dflt' > ) ]
 DEI: 91125
 MacFeat: 0 0 0
 MacName: 0 0 24 "All Typographic Features"
@@ -735,8 +736,8 @@ ShortTable: maxp 16
   8
   2
 EndShort
-LangName: 1033 "" "" "" "FontForge 2.0 : Sawarabi Gothic Medium : 30-11-2008" "" "" "" "" "" "mshio (mshio@users.sourceforge.jp)" "" "http://sawarabi-fonts.sourceforge.jp" "" "Use of this font software is subject to the license agreement under which you accept the font software." "http://creativecommons.org/licenses/by/3.0/deed.en_US" 
-LangName: 1041 "+MFMwbjDVMKkw8zDIMG8wAQAA-FontForge 2.0 (http://fontforge.sf.net) +MJJPfzBjMGYwAQAA-mshio (mshio@users.sourceforge.jp) +MExPXGIQMFcwfjBXMF8wAgAA" "+MFUwjzCJMHMwtDC3MMMwrwAA" "M" "" "+MFUwjzCJMHMwtDC3MMMwrwAA" 
+LangName: 1033 "" "" "" "FontForge 2.0 : Sawarabi Gothic Medium : 30-11-2008" "" "" "" "" "" "mshio (mshio@users.sourceforge.jp)" "" "http://sawarabi-fonts.sourceforge.jp" "" "Use of this font software is subject to the license agreement under which you accept the font software." "http://creativecommons.org/licenses/by/3.0/deed.en_US"
+LangName: 1041 "+MFMwbjDVMKkw8zDIMG8wAQAA-FontForge 2.0 (http://fontforge.sf.net) +MJJPfzBjMGYwAQAA-mshio (mshio@users.sourceforge.jp) +MExPXGIQMFcwfjBXMF8wAgAA" "+MFUwjzCJMHMwtDC3MMMwrwAA" "M" "" "+MFUwjzCJMHMwtDC3MMMwrwAA"
 GaspTable: 1 65535 2 0
 Encoding: UnicodeFull
 UnicodeInterp: none
@@ -744,5 +745,5 @@ NameList: Adobe Glyph List
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 30944 8 3
+WinInfo: 80 8 4
 EndSplineFont

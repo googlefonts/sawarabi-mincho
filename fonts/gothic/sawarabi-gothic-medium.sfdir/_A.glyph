@@ -19,5 +19,5 @@ SplineSet
  240 276 l 1,10,-1
  489 276 l 1,8,-1
 EndSplineSet
-Kerns2: 92 -80 "'kern' Horizontal Kerning lookup 0 subtable"  90 -80 "'kern' Horizontal Kerning lookup 0 subtable"  89 -50 "'kern' Horizontal Kerning lookup 0 subtable"  82 -10 "'kern' Horizontal Kerning lookup 0 subtable"  70 -20 "'kern' Horizontal Kerning lookup 0 subtable"  58 -120 "'kern' Horizontal Kerning lookup 0 subtable"  57 -150 "'kern' Horizontal Kerning lookup 0 subtable"  55 -150 "'kern' Horizontal Kerning lookup 0 subtable"  50 -50 "'kern' Horizontal Kerning lookup 0 subtable"  42 -80 "'kern' Horizontal Kerning lookup 0 subtable"  38 -50 "'kern' Horizontal Kerning lookup 0 subtable" 
+Kerns2: 92 -80 "'kern' Horizontal Kerning lookup 0 subtable" 90 -80 "'kern' Horizontal Kerning lookup 0 subtable" 89 -50 "'kern' Horizontal Kerning lookup 0 subtable" 82 -10 "'kern' Horizontal Kerning lookup 0 subtable" 70 -20 "'kern' Horizontal Kerning lookup 0 subtable" 58 -120 "'kern' Horizontal Kerning lookup 0 subtable" 57 -150 "'kern' Horizontal Kerning lookup 0 subtable" 55 -150 "'kern' Horizontal Kerning lookup 0 subtable" 50 -50 "'kern' Horizontal Kerning lookup 0 subtable" 42 -80 "'kern' Horizontal Kerning lookup 0 subtable" 38 -50 "'kern' Horizontal Kerning lookup 0 subtable"
 EndChar

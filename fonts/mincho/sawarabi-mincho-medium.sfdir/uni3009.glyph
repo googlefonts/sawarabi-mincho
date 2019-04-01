@@ -15,5 +15,6 @@ SplineSet
  111 831 l 1,6,-1
  410 350 l 1,0,-1
 EndSplineSet
+Validated: 1
 Substitution2: "'vert' lookup 0-1" uni3009.vert
 EndChar
