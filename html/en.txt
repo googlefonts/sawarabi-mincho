@@ -1,0 +1,64 @@
+=(title) Sawarabi Fonts =
+=(language) English =
+=(lang) en =
+
+% about
+## About Sawarabi Fonts
+
+Sawarabi Fonts are Japanese font families which are make up of two fonts,
+gothic and mincho.  Sawarabi Gothic is a ‘Japanese gothic’ font, which is
+similar to sans-serif.  Sawarabi Mincho is a ‘mincho’ font.  ‘Mincho’ means a
+Ming typeface and is used like a serif font in Japan.
+
+Sawarabi Gothic and Mincho are normal ordinary fonts and have not notable
+features. But it can be said that their design concept might be a little
+traditional (or old fashioned), if compared with
+[VL Gothic](http://dicey.org/vlgothic/) (or [M+ FONTS](https://mplus-fonts.osdn.jp/))
+which have already been popular as free Japanese fonts.
+
+Though both of fonts are available, they have not yet enough characters for
+daily use, such as standard kanji, for being under developing now.
+
+% license
+## License
+
+The license of Sawarabi Fonts is Creative Commons Attribution 3.0. You can see
+the content of this license on the following site:
+
+- [Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/3.0/)
+
+% samples
+## Samples
+
+Sawarabi Gothic (ver.20161015).
+
+<img src="/img/sample-gothic.png" alt="Sample (Gothic)" /><br />
+
+Sawarabi Mincho (ver.20140815).
+
+<img src="../img/sample-mincho.png" alt="Sample (Mincho)" /><br />
+
+% download
+## Download
+
+You can download the latest Sawarabi Fonts from the following links:
+
+<div id="download-box">
+<script charset="utf-8" type="text/javascript" src="https://osdn.net/projects/sawarabi-fonts/files/compact.js"></script>
+<noscript>
+<p style="border: 1px solid black">
+(The download links cannot be shown because your browser disable JavaScript.
+Please download them from <a href="https://osdn.net/projects/sawarabi-fonts/">Sawarabi Fonts Project site</a>.)</p>
+</noscript>
+</div>
+
+% links
+## Links
+
+<dl>
+<dt><a href="https://osdn.net/projects/sawarabi-fonts/">Sawarabi Fonts Project Top Page</a></dt>
+<dd>
+The project site in OSDN. In wiki pages of it, you can get a little more
+information, but these might be written in Japanese.
+</dd>
+</dl>

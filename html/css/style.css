@@ -2,28 +2,28 @@ body {
   background-color: #fff;
   margin: 0;
 }
-header .container { width: 100%; }
-header .container div#navbar {
+nav .container { width: 100%; }
+nav .container div#navbar {
   width: 680px;
   height: 66px;
   margin: 0 auto;
   background-color: #fff;
 }
-header .container div#navbar div { float: left; }
-header .container div#navbar div.logo {
+nav .container div#navbar div { float: left; }
+nav .container div#navbar div.logo {
   padding-top: 7px;
 }
-header .container div#navbar div#lang {
+nav .container div#navbar div#lang {
   float: right;
 }
-header .container div#navbar div#lang div.container {
+nav .container div#navbar div#lang div.container {
   position: absolute;
   top: 66px;
   width: 110px;
   display: none;
   box-shadow: 1px 2px 2px #000;
 }
-header .container div#navbar div#lang div.item {
+nav .container div#navbar div#lang div.item {
   padding: 26px 1em 0 1em;
   width: 80px;
   height: 40px;
@@ -31,32 +31,32 @@ header .container div#navbar div#lang div.item {
   background-color: #fff;
   font-size: 90%;
 }
-header .container div#navbar div#lang div.item:hover {
+nav .container div#navbar div#lang div.item:hover {
   background-color: #c8c8c8;
 }
-header .container div#navbar div#lang div#current-lang {
+nav .container div#navbar div#lang div#current-lang {
   text-align: center;
 }
-div#docs-header {
+header {
   background-color: #084;
   width: 100%;
   height: 300px;
 }
-div#docs-header .container {
+header .container {
   width: 680px;
   height: 300px;
   margin: 0 auto;
   background-color: #0a4;
 }
-div#docs-header .container .buttons-container {
+header .container .buttons-container {
   position: absolute;
 }
-div#docs-header .container .buttons-container .inner-container {
+header .container .buttons-container .inner-container {
   position: relative;
   left: 600px;
   top: 15px;
 }
-div#docs-header .container .buttons-container .button {
+header .container .buttons-container .button {
   padding: .25em .55em;
   background-color: #fff;
   border-radius: 0.55em;
@@ -66,17 +66,17 @@ div#docs-header .container .buttons-container .button {
   margin: 1px 2px;
   cursor: pointer;
 }
-div#docs-header .container .buttons-container .pressed {
+header .container .buttons-container .pressed {
   background-color: #c8c8c8;
 }
-div#docs .container {
+article .container {
   width: 650px;
   margin: 0 auto;
   padding: 10px 15px;
   background-color: #fff;
   font-size: 90%;
 }
-article h2 {
+section h2 {
   color: #094;
   padding-top: 1em;
   font-size: 125%;
