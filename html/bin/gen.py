@@ -106,27 +106,25 @@ def parse_args():
 
 if __name__ == "__main__":
     args = parse_args()
-    print(args.source)
-    print(args.out_path)
-    print(args.template_path)
 
     with open(args.source) as f:
         lines = f.readlines()
     doc = Parser(Section, rules).parse(lines)
 
-    print(doc)
-
     temp = html.parse(args.template_path)
     temp.getroot().attrib['lang'] = doc.property['lang']
     temp.xpath('//title')[0].text = doc.property['title']
     img = temp.xpath('//div[contains(@class, "logo")]/img')[0]
-    img.attrib['src'] = f"/img/logo-{doc.property['lang']}"
     img.attrib['alt'] = doc.property['title']
+    langname = temp.xpath('//div[contains(@id, "current-lang")]/span')[0]
+    langname.text = doc.property['language']
 
     for sec in temp.xpath('//section'):
         id = sec.attrib['id']
         fg = html.fromstring(doc[id])
         sec.append(fg)
+
+    for a in temp.xpath('//a'): a.attrib['target'] = '_blank'
 
     with open(args.out_path, 'w') as f:
         f.write(html.tostring(temp, encoding='utf-8').decode())
