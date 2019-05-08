@@ -2,26 +2,25 @@
 # -*- coding: utf-8 -*-
 
 # $Id$
-# Author: mshio <mshio@users.sourceforge.jp>
+# Author: mshio <mshio@users.osdn.me>
 
-__version__ = '0.11'
+__version__ = '0.12'
 
+import argparse
 import os
-import sys
 import tarfile
-from fontparser import FontDiffParser
+from fontparser import font_diff
 from listprinter import SimpleListPrinter
 
 
 def print_new_glyph(archive, newfile, printer=None):
   def fontfilepath_in_archive(archive_path, weight, ext='ttf'):
-    filenm = archive_path.split('/')[-1]
-    p = filenm.split('-')
-    family_name = p[0]
-    type_name = p[1]
+    file_name = archive_path.split('/')[-1]
+    family_name, type_name, _ = file_name.split('-', 2)
 
-    return '%s-%s/%s-%s-%s.%s' % (family_name, type_name,
-                                  family_name, type_name, weight, ext)
+    return '{family}-{type_name}/{family}-{type_name}-{weight}.{ext}'.format(
+      family=family_name, type_name=type_name, weight=weight, ext=ext
+    )
 
   def expand_archive(archive_path, fontfile_path):
     f = tarfile.open(archive_path, 'r:gz')
@@ -35,8 +34,7 @@ def print_new_glyph(archive, newfile, printer=None):
     font_path = fontfilepath_in_archive(archive, 'medium')
     expand_archive(archive, font_path)
 
-    parser = FontDiffParser(font_path, newfile)
-    diff = parser.get_diff()
+    diff = font_diff(font_path, newfile)
     clean_up(font_path)
 
     p = printer
@@ -47,12 +45,13 @@ def print_new_glyph(archive, newfile, printer=None):
 
   main(archive, newfile, printer)
 
+def parse_args():
+  parser = argparse.ArgumentParser()
+  parser.add_argument('archive_file', help='path of an archived font file')
+  parser.add_argument('font_file', help='path of a font file')
+
+  return parser.parse_args()
+
 if __name__ == '__main__':
-  if len(sys.argv) != 3:
-    print 'usage: %s tar.gz-file font-file' % sys.argv[0]
-    sys.exit(1)
-
-  archive = sys.argv[1]
-  newfile = sys.argv[2]
-
-  print_new_glyph(archive, newfile)
+  args = parse_args()
+  print_new_glyph(args.archive_file, args.font_file)

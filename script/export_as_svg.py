@@ -23,7 +23,7 @@ import sys
 import time
 import xml.parsers.expat
 
-COPYRIGHT = 'Copyright: (c) 2008-%d mshio <mshio@users.sourceforge.jp>'
+COPYRIGHT = 'Copyright: (c) 2008-%d mshio <mshio@users.osdn.me>'
 
 class SvgCustomizer:
   '''

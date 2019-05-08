@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # $Id$
-# Author: mshio <mshio@users.sourceforge.jp>
+# Author: mshio <mshio@users.osdn.me>
 
 """
 概要
@@ -29,49 +29,49 @@
 このスクリプトを実行するには、FontForge が必要です。
 """
 
-__version__ = '0.11'
+__version__ = '0.12'
 
+import argparse
 import sys
-from types import MethodType
-from fontparser import FontParser
+from fontparser import filter_glyphs
 from listprinter import SimpleListPrinter
 
-class KanjiList:
-    def __init__(self, file_path):
-        self.file_path = file_path
-        self.buffer = []
-
-    def convert(self, line):
+def kanji_list(file_path):
+    def convert(line):
         try:
             s = unicode(line.rstrip('\r\n'), 'utf-8')
         except:
             sys.exit('[ERROR] %s' % line)
         return s
 
-    def read(self):
-        fh = open(self.file_path, 'r')
-        for line in fh:
+    buf = []
+    with open(file_path, 'r') as file:
+        for line in file:
             if line.startswith('#'):
                 continue
-            for c in self.convert(line):
-                self.buffer.append(ord(c))
-        fh.close()
-        return self.buffer
+            for c in convert(line):
+                buf.append(ord(c))
+    return buf
 
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('font_file', help='path of a font file')
+    parser.add_argument('kanji_file', help='path of a kanji file')
+
+    return parser.parse_args()
 
 if __name__ == '__main__':
-    parser = FontParser(sys.argv[1])
-    kanji_list = KanjiList(sys.argv[2]).read()
+    args = parse_args()
+    kanjis = kanji_list(args.kanji_file)
 
-    def remove(self, char):
-        for c in kanji_list:
-            if char.unicode == c:
-                kanji_list.remove(c)
-                break
+    def remove(char):
+        code = next(iter(filter(lambda c: char.unicode == c, kanjis)), False)
+        if code:
+            kanjis.remove(code)
 
-    parser.parse(remove)
+    filter_glyphs(args.font_file, remove)
 
     p = SimpleListPrinter(delimiter=0x3001)
-    p.output(kanji_list)
+    p.output(kanjis)
     print
-    print "%d char(s)" % len(kanji_list)
+    print "%d char(s)" % len(kanjis)

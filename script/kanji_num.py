@@ -1,16 +1,17 @@
 # -*- conding: utf-8 -*-
 
-__version__ = '0.1'
+# Author: mshio <mshio@users.osdn.me>
 
-import sys
-from fontparser import KanjiParser
+__version__ = '0.2'
+
+import argparse
+from fontparser import all_of_kanjis
 
 def get_kanjilist():
     def parse_source(filepath):
-        fh = open(filepath, 'r')
-        chars = [[ord(c) for c in unicode(line.rstrip('\r\n'), 'utf-8')
-                  if not line.startswith('#')] for line in fh]
-        fh.close()
+        with open(filepath, 'r') as fh:
+            chars = [[ord(c) for c in unicode(line.rstrip('\r\n'), 'utf-8')
+                      if not line.startswith('#')] for line in fh]
         return reduce(lambda x, y: x + y, chars)
 
     def parse_sources(filepaths):
@@ -23,14 +24,18 @@ def get_kanjilist():
     })
     return {k: parse_sources(v) for k, v in sources.items()}
 
-if __name__ == '__main__':
-    if len(sys.argv) <= 1:
-        print 'usage: %s font-file' % sys.argv[0]
-        sys.exit(1)
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('font_file', help='path of a font file')
 
-    all_kanjis = KanjiParser(sys.argv[1]).get_list()
+    return parser.parse_args()
+
+if __name__ == '__main__':
+    args = parse_args()
+
+    all_kanjis = all_of_kanjis(args.font_file)
     kanjilist = get_kanjilist()
 
     for k, v in kanjilist.items():
         count = len(set(v) & set(all_kanjis))
-        print '%(key)s, %(num)d' % {'key': k, 'num': count}
+        print '{key}, {num}'.format(key=k, num=count)

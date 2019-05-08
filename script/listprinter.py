@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Author: mshio <mshio@users.sourceforge.jp>
+# Author: mshio <mshio@users.osdn.me>
 
 __version__ = '0.11'
 

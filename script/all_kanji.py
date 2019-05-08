@@ -1,34 +1,35 @@
 # -*- coding: utf-8 -*-
 
-# Author: mshio <mshio@users.sourceforge.jp>
+# Author: mshio <mshio@users.osdn.me>
 
-__version__ = '0.11'
+__version__ = '0.12'
 
+import argparse
 import sys
-from fontparser import KanjiParser
+from fontparser import all_of_kanjis
 from listprinter import SimpleListPrinter
 
 
 def main(font_path, output=sys.stdout):
-    parser = KanjiParser(font_path)
-    kanji_list = parser.get_list()
+    kanji_list = all_of_kanjis(font_path)
 
     p = SimpleListPrinter(out=output, delimiter=0x3001)
     p.output(kanji_list)
     print >>output
-    print >>output, "%d char(s)" % len(kanji_list)
+    print >>output, "{} char(s)".format(len(kanji_list))
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('font_files', nargs='+', help='path of a font file')
+
+    return parser.parse_args()
 
 if __name__ == '__main__':
-    if len(sys.argv) <= 1:
-        print 'usage: %s font-file' % sys.argv[0]
-        sys.exit(1)
+    args = parse_args()
 
-    print_title = len(sys.argv) >= 3
+    print_title = len(args.font_files) >= 2
 
-    for path in sys.argv:
-        if path == sys.argv[0]: continue
-
-        if print_title: print "%s:" % path
+    for path in args.font_files:
+        if print_title: print "{}:".format(path)
         main(path)
-        if print_title and path != sys.argv[-1]: print
-
+        if print_title and path != args.font_files[-1]: print
