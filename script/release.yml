@@ -1,4 +1,5 @@
-rootdir: /home/haru/Documents/dev/sawarabi-fonts/trunk/fonts
+rootdir:
+  ../fonts
 workdir:
   root:
   gothic: gothic/release

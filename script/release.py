@@ -19,11 +19,13 @@ class AllKanjiList:
     self.__count = None
 
   def listbuffer(self):
-    if self.__listbuffer == None: self.__retrieve()
+    if self.__listbuffer is None:
+      self.__retrieve()
     return self.__listbuffer
 
   def count(self):
-    if self.__count == None: self.__retrieve()
+    if self.__count is None:
+      self.__retrieve()
     return self.__count
 
   def __get_buffer(self):
@@ -49,11 +51,13 @@ class NewKanjiList:
     self.__count = None
 
   def listbuffer(self):
-    if self.__listbuffer == None: self.__retrieve()
+    if self.__listbuffer is None:
+      self.__retrieve()
     return self.__listbuffer
 
   def count(self):
-    if self.__count == None: self.__retrieve()
+    if self.__count is None:
+      self.__retrieve()
     return self.__count
 
   def __get_buffer(self):
@@ -120,11 +124,13 @@ def prepare_release_dir(font_dir_path, out_path, name, weight):
 
 class ReleaseConfig:
   def __init__(self, path):
-    if not os.path.exists(path): raise 'No such file exists: %s' % path
-    if not os.path.isfile(path): raise 'The specified path is not a file'
-    buf = open(path).read()
-    self.conf = yaml.load(buf)
-    self.rootdir = self.conf['rootdir']
+    if not os.path.exists(path):
+      raise 'No such file exists: {}'.format(path)
+    if not os.path.isfile(path):
+      raise 'The specified path is not a file'
+
+    self.conf = yaml.load(open(path).read())
+    self.rootdir = os.path.abspath(self.conf['rootdir'])
 
   def get_workdir(self, style):
     return self.__get_configurated_dir_path('workdir', style)
@@ -161,9 +167,9 @@ class ReleaseConfig:
 class FontName:
   def __init__(self, path):
     if not os.path.exists(path): 
-      raise Exception('No such file exists: %s' % path)
+      raise Exception('No such file exists: {}'.format(path))
     if not os.path.isfile(path): 
-      raise Exception('The specified path is not a file: %s' % path)
+      raise Exception('The specified path is not a file: {}'.format(path))
     self.__setup_items(path)
 
   def __setup_items(self, path):
@@ -212,4 +218,3 @@ if __name__ == '__main__':
 
   for lang in ['ja', 'en', 'de']: 
     print_releasenote(templatedir, conf.workdir, lang, all_list, new_list)
-
