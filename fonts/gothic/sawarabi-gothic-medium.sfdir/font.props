@@ -21,7 +21,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1227605546
-ModificationTime: 1553686575
+ModificationTime: 1563792620
 PfmFamily: 17
 TTFWeight: 500
 TTFWidth: 5
@@ -745,5 +745,5 @@ NameList: Adobe Glyph List
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 80 8 4
+WinInfo: 12448 8 4
 EndSplineFont
