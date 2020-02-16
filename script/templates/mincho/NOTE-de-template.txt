@@ -1,4 +1,4 @@
-Sawarabi Mincho ist eine japanische Schriftart, die unter die Creative-Commons-Lizenz verteilt werden. Diese Schriftart hat wesentlich Hiragana, Katakana, Alphabetes und so weiter, aber es fehlt ihm viele Glyphen wie Kanji.
+Sawarabi Mincho ist eine japanische Schriftart, die unter die Creative-Commons-Lizenz und die SIL Open Font License verteilt werden. Diese Schriftart hat wesentlich Hiragana, Katakana, Alphabetes und so weiter, aber es fehlt ihm viele Glyphen wie Kanji.
 Die folgende Liste zeigt die %(new_kanji_count)s Schriftzeichen, die in dieser Version hinzugefügt wurden:
 
 %(new_kanji_list)s

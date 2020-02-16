@@ -3,11 +3,14 @@ Sawarabi Mincho
 o  What is this?
 
 Sawarabi Mincho is a Japanese Mincho font, which is released under the 
-Creative Commons Attribution License.
-See the following URL for the details of this License.
+Creative Commons Attribution License, or SIL Open Font License.
+See the following URL for the details of the license.
 
+Creative Commons Attribution License:
 http://creativecommons.org/licenses/by/3.0/
 
+SIL Open Font License:
+sil-open-font-license.txt
 
 o  Attention
 

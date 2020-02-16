@@ -2,17 +2,22 @@
 
 o 概要
 
-このフォントは、明朝体の日本語フォントです。ライセンスは 
-Creative Commons Attribution License 3.0 です。
+このフォントは、明朝体の日本語フォントです。
+ライセンスは Creative Commons Attribution License 3.0 と
+SIL Open Font License 1.1 のデュアルライセンスです。
+フォントの改変・再配布の際には、どちらかのライセンスに
+したがってください。
 
 
 o ライセンスについて
 
-上記のように、ライセンスは Creative Common Attribution 
-License 3.0 です。ライセンスの詳細は、下記の URL から参照
-することができます。
+Creative Common Attribution License 3.0 の詳細については、
+下記の URL から参照することができます。
 
 http://creativecommons.org/licenses/by/3.0/deed.ja
+
+SIL Open Font License 1.1 の詳細については、添付の
+sil-open-font-license.txt を参照してください。
 
 なお、このフォント自体の再配布ではなく、このフォントのレン
 ダリング結果を含んだ印刷物や画像などを再配布されるという場

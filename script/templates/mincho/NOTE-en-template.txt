@@ -1,4 +1,4 @@
-Sawarabi Mincho is a Japanese font available under the Creative Commons License. This font has main hiragana, katakana, alphabets and so on, but being under developing, lacks many glyphs such as kanji.
+Sawarabi Mincho is a Japanese font available under the Creative Commons License and SIL Open Font License. This font has main hiragana, katakana, alphabets and so on, but being under developing, lacks many glyphs such as kanji.
 The following list shows %(new_kanji_count)s characters that were added in this version:
 
 %(new_kanji_list)s
