@@ -3,6 +3,7 @@ Encoding: 8230 8230 473
 Width: 1000
 GlyphClass: 2
 Flags: W
+GlyphCompositionVertical: 1  unife19%0,0,0,0
 LayerCount: 2
 Fore
 SplineSet
@@ -35,4 +36,5 @@ SplineSet
  433 40 433 40 433 67.5 c 128,-1,17
 EndSplineSet
 Validated: 1
+Substitution2: "'vert' lookup 0-1" uniFE19
 EndChar
