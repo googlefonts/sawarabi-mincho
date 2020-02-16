@@ -3,7 +3,7 @@ FontName: SawarabiGothic-Medium
 FullName: Sawarabi Gothic
 FamilyName: Sawarabi Gothic
 Weight: Medium
-Copyright: Created by mshio (mshio@users.sourceforge.jp) with FontForge 2.0 (http://fontforge.sf.net)
+Copyright: Created by mshio (mshio@users.osdn.me) with FontForge 2.0 (http://fontforge.sf.net)
 Version: 20161015
 ItalicAngle: 0
 UnderlinePosition: -579
@@ -21,7 +21,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1227605546
-ModificationTime: 1563792620
+ModificationTime: 1566100236
 PfmFamily: 17
 TTFWeight: 500
 TTFWidth: 5
@@ -58,6 +58,7 @@ OS2UnicodeRanges: 8000006f.08877c29.00000010.00000000
 Lookup: 1 0 0 "'rtla' Right to Left Alternates in CJK Ideographic lookup 0" { "'rtla' Right to Left Alternates in CJK Ideographic lookup 0 subtable"  } ['rtla' ('DFLT' <'dflt' > 'hani' <'dflt' > ) ]
 Lookup: 1 0 0 "<4,0> Vertical Substitution lookup 1" { "<4,0> Vertical Substitution lookup 1 subtable" ("vert") } [<4,0> ('DFLT' <'dflt' > 'kana' <'dflt' > 'latn' <'dflt' > ) 'vrt2' ('DFLT' <'dflt' > 'kana' <'dflt' > 'latn' <'dflt' > ) ]
 Lookup: 258 0 0 "'kern' Horizontal Kerning lookup 0" { "'kern' Horizontal Kerning lookup 0 subtable"  } ['kern' ('DFLT' <'dflt' > 'cyrl' <'dflt' > 'latn' <'dflt' > ) ]
+MarkAttachClasses: 1
 DEI: 91125
 MacFeat: 0 0 0
 MacName: 0 0 24 "All Typographic Features"
@@ -746,4 +747,6 @@ DisplaySize: -48
 AntiAlias: 1
 FitToEm: 1
 WinInfo: 12448 8 4
+BeginPrivate: 0
+EndPrivate
 EndSplineFont
