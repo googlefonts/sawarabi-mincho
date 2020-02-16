@@ -101,8 +101,23 @@ def parse_args():
     ps.add_argument("source")
     ps.add_argument("-o", dest="out_path", default="out.html")
     ps.add_argument("-t", dest="template_path", default="template.html")
+    ps.add_argument("-r", dest="for_rootdir", default=False)
 
     return ps.parse_args()
+
+def rewrite_resource_path(template):
+    def to_be_rewritten(path: str) -> bool:
+        return not re.match(r"^(https?:)?//.*", path)
+
+    for l in template.xpath("//link[@rel='stylesheet']"):
+        path = l.attrib.get("href")
+        if to_be_rewritten(path):
+            l.attrib["href"] = f"../{path}"
+
+    for s in template.xpath("//script|//img"):
+        path = s.attrib.get("src")
+        if to_be_rewritten(path):
+            s.attrib["src"] = f"../{path}"
 
 if __name__ == "__main__":
     args = parse_args()
@@ -113,7 +128,7 @@ if __name__ == "__main__":
 
     temp = html.parse(args.template_path)
     temp.getroot().attrib['lang'] = doc.property['lang']
-    temp.xpath('//title')[0].text = doc.property['title']
+    temp.xpath('/html/head/title')[0].text = doc.property['title']
     img = temp.xpath('//div[contains(@class, "logo")]/img')[0]
     img.attrib['alt'] = doc.property['title']
     langname = temp.xpath('//div[contains(@id, "current-lang")]/span')[0]
@@ -125,6 +140,9 @@ if __name__ == "__main__":
         sec.append(fg)
 
     for a in temp.xpath('//a'): a.attrib['target'] = '_blank'
+
+    if not args.for_rootdir:
+        rewrite_resource_path(temp)
 
     with open(args.out_path, 'w') as f:
         f.write(html.tostring(temp, encoding='utf-8').decode())

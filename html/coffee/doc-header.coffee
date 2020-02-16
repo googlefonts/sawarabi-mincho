@@ -290,7 +290,7 @@ $ ->
       'mincho'
     ]
 
-    $container = $('#docs-header .buttons-container .inner-container')
+    $container = $('header .buttons-container .inner-container')
     buttons = []
     for name, n in drawPage.mapping
       b = document.createElement('div')

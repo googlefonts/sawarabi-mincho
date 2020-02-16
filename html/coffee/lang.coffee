@@ -52,13 +52,9 @@ class LangMenu
     return
 
   onclickItem: (event)->
-    console.log(@)
-
     return if $(@).attr("id") == "current-lang"
     key = $(@).attr("data-key") + '/'
-    key = '' if key is 'ja/'
     root = '../'
-    root = './' if $("div#current-lang").attr("data-key") is "ja"
     window.location = root + key
     return
 

@@ -17,21 +17,21 @@
 % license
 ## ライセンス
 
-　さわらびフォントのライセンスは、Creative Commons Attribution 3.0 です。
-このライセンスの内容は、以下のリンクからご覧いただけます。
+　さわらびフォントは、Creative Commons Attribution 3.0 と SIL Open Font License 1.1 のデュアルライセンスで配布されています。ライセンスの内容は、以下のリンクからご覧いただけます。
 
 - [Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/3.0/deed.ja)
+- [SIL Open Font License 1.1](https://scripts.sil.org/OFL)
 
 % samples
 ## 書体見本
 
 　さわらびゴシック（ver.20161015）の書体見本です。
 
-<img src="/img/sample-gothic.png" alt="書体見本（ゴシック）" /><br />
+<img src="img/sample-gothic.png" alt="書体見本（ゴシック）" /><br />
 
-　さわらび明朝（ver.20140815）の書体見本です。
+　さわらび明朝（ver.20200215）の書体見本です。
 
-<img src="/img/sample-mincho.png" alt="書体見本（明朝）" /><br />
+<img src="img/sample-mincho-20200215.png" alt="書体見本（明朝）" /><br />
 
 % download
 ## ダウンロード
