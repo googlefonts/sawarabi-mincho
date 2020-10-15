@@ -4,7 +4,7 @@ FullName: Sawarabi Mincho Medium
 FamilyName: Sawarabi Mincho
 Weight: Medium
 Copyright: Created by mshio (mshio@users.osdn.me) with FontForge 2.0 (http://fontforge.sf.net)
-Version: 000.0081
+Version: 000.0082
 DefaultBaseFilename: sawarabi-mincho-medium
 ItalicAngle: 0
 UnderlinePosition: -196
@@ -21,7 +21,7 @@ OS2Version: 2
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1228014099
-ModificationTime: 1586433229
+ModificationTime: 1602769532
 PfmFamily: 17
 TTFWeight: 500
 TTFWidth: 5
@@ -577,7 +577,7 @@ NameList: Adobe Glyph List
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 38552 8 4
+WinInfo: 8224 8 4
 BeginPrivate: 0
 EndPrivate
 Grid
