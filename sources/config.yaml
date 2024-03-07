@@ -1,3 +1,4 @@
 sources:
   - SawarabiMincho.glyphs
 familyName: Sawarabi Mincho
+removeOutlineOverlaps: false
