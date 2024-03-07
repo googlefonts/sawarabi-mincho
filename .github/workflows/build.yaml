@@ -59,7 +59,7 @@ jobs:
       with:
         name: ${{ env.ZIP_NAME }}
         path: |
-          fonts
+          fonts/ttf
           out
     outputs:
       zip_name: ${{ env.ZIP_NAME }}

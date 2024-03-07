@@ -1,4 +1,4 @@
-babelfont @ git+https://github.com/simoncozens/babelfont@5bc15ee
+babelfont @ git+https://github.com/simoncozens/babelfont@0a2fbdd
 fontmake>=2.4
 gftools[qa]>=0.9.23
 drawbot-skia>=0.4.8
