@@ -1,0 +1,19 @@
+StartChar: uni2198
+Encoding: 8600 8600 971
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+277 567 m 1,0,-1
+ 746 98 l 1,1,-1
+ 785 291 l 1,2,-1
+ 806 313 l 1,3,-1
+ 814 -28 l 1,4,-1
+ 471 -22 l 1,5,-1
+ 493 -1 l 1,6,-1
+ 688 40 l 1,7,-1
+ 219 509 l 1,8,-1
+ 277 567 l 1,0,-1
+EndSplineSet
+EndChar

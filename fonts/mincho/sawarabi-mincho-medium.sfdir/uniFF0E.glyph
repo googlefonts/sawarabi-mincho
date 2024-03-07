@@ -1,0 +1,20 @@
+StartChar: uniFF0E
+Encoding: 65294 65294 3698
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+71 60 m 128,-1,1
+ 71 100 71 100 99 128 c 128,-1,2
+ 127 156 127 156 167 156 c 128,-1,3
+ 207 156 207 156 235 128 c 128,-1,4
+ 263 100 263 100 263 60 c 128,-1,5
+ 263 20 263 20 235 -8 c 128,-1,6
+ 207 -36 207 -36 167 -36 c 128,-1,7
+ 127 -36 127 -36 99 -8 c 128,-1,0
+ 71 20 71 20 71 60 c 128,-1,1
+EndSplineSet
+Validated: 1
+Substitution2: "'vert' lookup 0-1" uniFF0E.vert
+EndChar

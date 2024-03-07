@@ -1,0 +1,14 @@
+StartChar: dotbelowcomb
+Encoding: 803 803 544
+Width: 0
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+251 -166 m 1,0,-1
+ 151 -166 l 1,1,-1
+ 151 -62 l 1,2,-1
+ 251 -62 l 1,3,-1
+ 251 -166 l 1,0,-1
+EndSplineSet
+EndChar

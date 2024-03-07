@@ -1,0 +1,19 @@
+StartChar: colon
+Encoding: 58 58 29
+Width: 312
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+217 516 m 1,0,-1
+ 217 393 l 1,1,-1
+ 95 393 l 1,2,-1
+ 95 516 l 1,3,-1
+ 217 516 l 1,0,-1
+217 120 m 1,4,-1
+ 217 -3 l 1,5,-1
+ 95 -3 l 1,6,-1
+ 95 120 l 1,7,-1
+ 217 120 l 1,4,-1
+EndSplineSet
+EndChar

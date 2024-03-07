@@ -1,0 +1,63 @@
+=(title) さわらびフォント =
+=(language) 日本語 =
+=(lang) ja =
+
+% about
+## 概要
+
+　さわらびフォントは、フリーなライセンスで提供している日本語フォントです。
+現在、ゴシック体のさわらびゴシックと明朝体のさわらび明朝の 2 種類のフォントを
+公開しています。
+
+　なお、公開しているとはいえ、現在のところどちらのフォントも開発中という段階
+です。残念ながら、現状では通常用途に必要な漢字なども十分には揃っていません
+（ない文字は、ご利用の OS によっては自動補完が働き、別フォントで表示されるか
+と思います）。ご利用の際はあらかじめご了承ください。
+
+% license
+## ライセンス
+
+　さわらびフォントは、Creative Commons Attribution 3.0 と SIL Open Font License 1.1 のデュアルライセンスで配布されています。ライセンスの内容は、以下のリンクからご覧いただけます。
+
+- [Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/3.0/deed.ja)
+- [SIL Open Font License 1.1](https://scripts.sil.org/OFL)
+
+% samples
+## 書体見本
+
+　さわらびゴシック（ver.20161015）の書体見本です。
+
+<img src="img/sample-gothic.png" alt="書体見本（ゴシック）" /><br />
+
+　さわらび明朝（ver.20200215）の書体見本です。
+
+<img src="img/sample-mincho-20200215.png" alt="書体見本（明朝）" /><br />
+
+% download
+## ダウンロード
+
+　下のリンクから各フォントをダウンロードすることができます。なお、さわらび
+ゴシックが sawarabi-gothic、さわらび明朝が sawarabi-mincho に対応しています。
+
+<div id="download-box">
+<script src="https://osdn.net/projects/sawarabi-fonts/files/compact.js"></script>
+<noscript>
+<p style="border: 1px solid black">　（JavaScript が有効になっていない場合は、
+ここにリンクは現れません。
+ダウンロードは <a href="https://osdn.net/projects/sawarabi-fonts/">OSDN
+のプロジェクトページ</a>から行ってください。）</p>
+</noscript>
+</div>
+
+% links
+## Links
+
+<dl>
+<dt><a href="https://osdn.net/projects/sawarabi-fonts/">さわらびフォントの
+プロジェクトページ</a></dt>
+<dd>
+OSDN 内に設置させていただいているプロジェクトページです。こちらの Wiki 文書など
+に、さわらびフォントに関する、その他の情報が若干掲載されています。また、
+フォーラムもございますので、何かございましたらお寄せください。
+</dd>
+</dl>

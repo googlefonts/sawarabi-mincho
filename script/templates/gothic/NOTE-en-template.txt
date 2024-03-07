@@ -1,0 +1,8 @@
+Sawarabi Gothic is a Japanese font available under the Creative Commons License. This font has main hiragana, katakana, alphabets and so on, but being under developing, lacks many glyphs such as kanji.
+The following list shows %(new_kanji_count)s characters that were added in this version:
+
+%(new_kanji_list)s
+
+The following shows %(kanji_count)s characters that are all the characters of kanji contained in this font:
+
+%(kanji_list)s

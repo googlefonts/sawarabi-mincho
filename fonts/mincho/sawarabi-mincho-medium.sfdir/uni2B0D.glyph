@@ -1,0 +1,22 @@
+StartChar: uni2B0D
+Encoding: 11021 11021 1086
+Width: 1000
+GlyphClass: 2
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+405 600 m 1,0,-1
+ 280 600 l 1,1,-1
+ 501 821 l 1,2,-1
+ 720 600 l 1,3,-1
+ 595 600 l 1,4,-1
+ 595 199 l 1,5,-1
+ 720 199 l 1,6,-1
+ 501 -23 l 1,7,-1
+ 280 199 l 1,8,-1
+ 405 199 l 1,9,-1
+ 405 600 l 1,0,-1
+EndSplineSet
+Validated: 1
+EndChar

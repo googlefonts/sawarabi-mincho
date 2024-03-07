@@ -1,0 +1,25 @@
+rootdir:
+  ../fonts
+workdir:
+  root:
+  gothic: gothic/release
+  mincho: mincho/release
+archivedir:
+  root:
+  gothic: gothic/dest
+  mincho: mincho/dest
+fonts:
+  gothic:
+    root: gothic
+    weight:
+      medium: sawarabi-gothic-medium
+    extension:
+      - ttf
+      - otf
+  mincho:
+    root: mincho
+    weight:
+      medium: sawarabi-mincho-medium
+    extension:
+      - ttf
+      - oft

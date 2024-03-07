@@ -1,0 +1,16 @@
+StartChar: H18543
+Encoding: 9642 9642 641
+Width: 1000
+GlyphClass: 2
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+357 227 m 1,0,-1
+ 357 512 l 1,1,-1
+ 643 512 l 1,2,-1
+ 643 227 l 1,3,-1
+ 357 227 l 1,0,-1
+EndSplineSet
+Validated: 1
+EndChar

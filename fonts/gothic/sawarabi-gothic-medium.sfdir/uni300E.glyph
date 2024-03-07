@@ -1,0 +1,25 @@
+StartChar: uni300E
+Encoding: 12302 12302 1829
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+588 90 m 1,0,-1
+ 675 90 l 1,1,-1
+ 675 760 l 1,2,-1
+ 895 760 l 1,3,-1
+ 895 850 l 1,4,-1
+ 588 850 l 1,5,-1
+ 588 90 l 1,0,-1
+548 50 m 1,6,-1
+ 548 890 l 1,7,-1
+ 928 890 l 1,8,-1
+ 928 720 l 1,9,-1
+ 715 720 l 1,10,-1
+ 715 50 l 1,11,-1
+ 548 50 l 1,6,-1
+EndSplineSet
+Substitution2: "<4,0> Vertical Substitution lookup 1 subtable" uni300E.vert
+Substitution2: "'rtla' Right to Left Alternates in CJK Ideographic lookup 0 subtable" uni300F
+EndChar

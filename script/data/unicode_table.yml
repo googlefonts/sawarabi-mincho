@@ -1,0 +1,528 @@
+- Basic Latin:
+    - 0x0
+    - 0x7f
+- Latin-1 Supplement:
+    - 0x80
+    - 0xff
+- Latin Extended-A:
+    - 0x100
+    - 0x17f
+- Latin Extended-B:
+    - 0x180
+    - 0x24f
+- IPA Extensions:
+    - 0x250
+    - 0x2af
+- Spacing Modifier Letters:
+    - 0x2b0
+    - 0x2ff
+- Combining Diacritical Marks:
+    - 0x300
+    - 0x36f
+- Greek and Coptic:
+    - 0x370
+    - 0x3ff
+- Cyrillic:
+    - 0x400
+    - 0x4ff
+- Cyrillic Supplement:
+    - 0x500
+    - 0x52f
+- Armenian:
+    - 0x530
+    - 0x58f
+- Hebrew:
+    - 0x590
+    - 0x5ff
+- Arabic:
+    - 0x600
+    - 0x6ff
+- Syriac:
+    - 0x700
+    - 0x74f
+- Arabic Supplement:
+    - 0x750
+    - 0x77f
+- Thaana:
+    - 0x780
+    - 0x7bf
+- NKo:
+    - 0x7c0
+    - 0x7ff
+- Samaritan:
+    - 0x800
+    - 0x83f
+- Mandaic:
+    - 0x840
+    - 0x85f
+- Arabic Extended-A:
+    - 0x8a0
+    - 0x8ff
+- Devanagari:
+    - 0x900
+    - 0x97f
+- Bengali:
+    - 0x980
+    - 0x9ff
+- Gurmukhi:
+    - 0xa00
+    - 0xa7f
+- Gujarati:
+    - 0xa80
+    - 0xaff
+- Oriya:
+    - 0xb00
+    - 0xb7f
+- Tamil:
+    - 0xb80
+    - 0xbff
+- Telugu:
+    - 0xc00
+    - 0xc7f
+- Kannada:
+    - 0xc80
+    - 0xcff
+- Malayalam:
+    - 0xd00
+    - 0xd7f
+- Sinhala:
+    - 0xd80
+    - 0xdff
+- Thai:
+    - 0xe00
+    - 0xe7f
+- Lao:
+    - 0xe80
+    - 0xeff
+- Tibetan:
+    - 0xf00
+    - 0xfff
+- Myanmar:
+    - 0x1000
+    - 0x109f
+- Georgian:
+    - 0x10a0
+    - 0x10ff
+- Hangul Jamo:
+    - 0x1100
+    - 0x11ff
+- Ethiopic:
+    - 0x1200
+    - 0x137f
+- Ethiopic Supplement:
+    - 0x1380
+    - 0x139f
+- Cherokee:
+    - 0x13a0
+    - 0x13ff
+- Unified Canadian Aboriginal Syllabics:
+    - 0x1400
+    - 0x167f
+- Ogham:
+    - 0x1680
+    - 0x169f
+- Runic:
+    - 0x16a0
+    - 0x16ff
+- Tagalog:
+    - 0x1700
+    - 0x171f
+- Hanunoo:
+    - 0x1720
+    - 0x173f
+- Buhid:
+    - 0x1740
+    - 0x175f
+- Tagbanwa:
+    - 0x1760
+    - 0x177f
+- Khmer:
+    - 0x1780
+    - 0x17ff
+- Mongolian:
+    - 0x1800
+    - 0x18af
+- Unified Canadian Aboriginal Syllabics Extended:
+    - 0x18b0
+    - 0x18ff
+- Limbu:
+    - 0x1900
+    - 0x194f
+- Tai Le:
+    - 0x1950
+    - 0x197f
+- New Tai Lue:
+    - 0x1980
+    - 0x19df
+- Khmer Symbols:
+    - 0x19e0
+    - 0x19ff
+- Buginese:
+    - 0x1a00
+    - 0x1a1f
+- Tai Tham:
+    - 0x1a20
+    - 0x1aaf
+- Balinese:
+    - 0x1b00
+    - 0x1b7f
+- Sundanese:
+    - 0x1b80
+    - 0x1bbf
+- Batak:
+    - 0x1bc0
+    - 0x1bff
+- Lepcha:
+    - 0x1c00
+    - 0x1c4f
+- Ol Chiki:
+    - 0x1c50
+    - 0x1c7f
+- Sundanese Supplement:
+    - 0x1cc0
+    - 0x1ccf
+- Vedic Extensions:
+    - 0x1cd0
+    - 0x1cff
+- Phonetic Extensions:
+    - 0x1d00
+    - 0x1d7f
+- Phonetic Extensions Supplement:
+    - 0x1d80
+    - 0x1dbf
+- Combining Diacritical Marks Supplement:
+    - 0x1dc0
+    - 0x1dff
+- Latin Extended Additional:
+    - 0x1e00
+    - 0x1eff
+- Greek Extended:
+    - 0x1f00
+    - 0x1fff
+- General Punctuation:
+    - 0x2000
+    - 0x206f
+- Superscripts and Subscripts:
+    - 0x2070
+    - 0x209f
+- Currency Symbols:
+    - 0x20a0
+    - 0x20cf
+- Combining Diacritical Marks for Symbols:
+    - 0x20d0
+    - 0x20ff
+- Letterlike Symbols:
+    - 0x2100
+    - 0x214f
+- Number Forms:
+    - 0x2150
+    - 0x218f
+- Arrows:
+    - 0x2190
+    - 0x21ff
+- Mathematical Operators:
+    - 0x2200
+    - 0x22ff
+- Miscellaneous Technical:
+    - 0x2300
+    - 0x23ff
+- Control Pictures:
+    - 0x2400
+    - 0x243f
+- Optical Character Recognition:
+    - 0x2440
+    - 0x245f
+- Enclosed Alphanumerics:
+    - 0x2460
+    - 0x24ff
+- Box Drawing:
+    - 0x2500
+    - 0x257f
+- Block Elements:
+    - 0x2580
+    - 0x259f
+- Geometric Shapes:
+    - 0x25a0
+    - 0x25ff
+- Miscellaneous Symbols:
+    - 0x2600
+    - 0x26ff
+- Dingbats:
+    - 0x2700
+    - 0x27bf
+- Miscellaneous Mathematical Symbols-A:
+    - 0x27c0
+    - 0x27ef
+- Supplemental Arrows-A:
+    - 0x27f0
+    - 0x27ff
+- Braille Patterns:
+    - 0x2800
+    - 0x28ff
+- Supplemental Arrows-B:
+    - 0x2900
+    - 0x297f
+- Miscellaneous Mathematical Symbols-B:
+    - 0x2980
+    - 0x29ff
+- Supplemental Mathematical Operators:
+    - 0x2a00
+    - 0x2aff
+- Miscellaneous Symbols and Arrows:
+    - 0x2b00
+    - 0x2bff
+- Glagolitic:
+    - 0x2c00
+    - 0x2c5f
+- Latin Extended-C:
+    - 0x2c60
+    - 0x2c7f
+- Coptic:
+    - 0x2c80
+    - 0x2cff
+- Georgian Supplement:
+    - 0x2d00
+    - 0x2d2f
+- Tifinagh:
+    - 0x2d30
+    - 0x2d7f
+- Ethiopic Extended:
+    - 0x2d80
+    - 0x2ddf
+- Cyrillic Extended-A:
+    - 0x2de0
+    - 0x2dff
+- Supplemental Punctuation:
+    - 0x2e00
+    - 0x2e7f
+- CJK Radicals Supplement:
+    - 0x2e80
+    - 0x2eff
+- Kangxi Radicals:
+    - 0x2f00
+    - 0x2fdf
+- Ideographic Description Characters:
+    - 0x2ff0
+    - 0x2fff
+- CJK Symbols and Punctuation:
+    - 0x3000
+    - 0x303f
+- Hiragana:
+    - 0x3040
+    - 0x309f
+- Katakana:
+    - 0x30a0
+    - 0x30ff
+- Bopomofo:
+    - 0x3100
+    - 0x312f
+- Hangul Compatibility Jamo:
+    - 0x3130
+    - 0x318f
+- Kanbun:
+    - 0x3190
+    - 0x319f
+- Bopomofo Extended:
+    - 0x31a0
+    - 0x31bf
+- CJK Strokes:
+    - 0x31c0
+    - 0x31ef
+- Katakana Phonetic Extensions:
+    - 0x31f0
+    - 0x31ff
+- Enclosed CJK Letters and Months:
+    - 0x3200
+    - 0x32ff
+- CJK Compatibility:
+    - 0x3300
+    - 0x33ff
+- CJK Unified Ideographs Extension A
+    - 0x3400
+    - 0x4dbf
+- Yijing Hexagram Symbols
+    - 0x4dc0
+    - 0x4dff
+- CJK Unified Ideographs
+    - 0x4e00
+    - 0x9fff
+- Linear B Syllabary
+    - 0x10000
+    - 0x1007f
+- Linear B Ideograms
+    - 0x10080
+    - 0x100ff
+- Aegean Numbers
+    - 0x10100
+    - 0x1013f
+- Ancient Greek Numbers
+    - 0x10140
+    - 0x1018f
+- Ancient Symbols
+    - 0x10190
+    - 0x101cf
+- Phaistos Disc
+    - 0x101d0
+    - 0x101ff
+- Lycian
+    - 0x10280
+    - 0x1029f
+- Carian
+    - 0x102a0
+    - 0x102df
+- Old Italic
+    - 0x10300
+    - 0x1032f
+- Gothic
+    - 0x10330
+    - 0x1034f
+- Ugaritic
+    - 0x10380
+    - 0x1039f
+- Old Persian
+    - 0x103a0
+    - 0x103df
+- Deseret
+    - 0x10400
+    - 0x1044f
+- Shavian
+    - 0x10450
+    - 0x1047f
+- Osmanya
+    - 0x10480
+    - 0x104af
+- Cypriot Syllabary
+    - 0x10800
+    - 0x1083f
+- Imperial Aramaic
+    - 0x10840
+    - 0x1085f
+- Phoenician
+    - 0x10900
+    - 0x1091f
+- Lydian
+    - 0x10920
+    - 0x1093f
+- Meroitic Hieroglyphs
+    - 0x10980
+    - 0x1099f
+- Meroitic Cursive
+    - 0x109a0
+    - 0x109ff
+- Kharoshthi
+    - 0x10a00
+    - 0x10a5f
+- Old South Arabian
+    - 0x10a60
+    - 0x10a7f
+- Avestan
+    - 0x10b00
+    - 0x10b3f
+- Inscriptional Parthian
+    - 0x10b40
+    - 0x10b5f
+- Inscriptional Pahlavi
+    - 0x10b60
+    - 0x10b7f
+- Old Turkic
+    - 0x10C00
+    - 0x10C4F
+- Rumi Numeral Symbols
+    - 0x10E60
+    - 0x10E7F
+- Brahmi
+    - 0x11000
+    - 0x1107F
+- Kaithi
+    - 0x11080
+    - 0x110CF
+- Sora Sompeng
+    - 0x110D0
+    - 0x110FF
+- Chakma
+    - 0x11100
+    - 0x1114F
+- Sharada
+    - 0x11180
+    - 0x111DF
+- Takri
+    - 0x11680
+    - 0x116CF
+- Cuneiform
+    - 0x12000
+    - 0x123FF
+- Cuneiform Numbers and Punctuation
+    - 0x12400
+    - 0x1247F
+- Egyptian Hieroglyphs
+    - 0x13000
+    - 0x1342F
+- Bamum Supplement
+    - 0x16800
+    - 0x16A3F
+- Miao
+    - 0x16F00
+    - 0x16F9F
+- Kana Supplement
+    - 0x1B000
+    - 0x1B0FF
+- Byzantine Musical Symbols
+    - 0x1D000
+    - 0x1D0FF
+- Musical Symbols
+    - 0x1D100
+    - 0x1D1FF
+- Ancient Greek Musical Notation
+    - 0x1D200
+    - 0x1D24F
+- Tai Xuan Jing Symbols
+    - 0x1D300
+    - 0x1D35F
+- Counting Rod Numerals
+    - 0x1D360
+    - 0x1D37F
+- Mathematical Alphanumeric Symbols
+    - 0x1D400
+    - 0x1D7FF
+- Arabic Mathematical Alphabetic Symbols
+    - 0x1EE00
+    - 0x1EEFF
+- Mahjong Tiles
+    - 0x1F000
+    - 0x1F02F
+- Domino Tiles
+    - 0x1F030
+    - 0x1F09F
+- Playing Cards
+    - 0x1F0A0
+    - 0x1F0FF
+- Enclosed Alphanumeric Supplement
+    - 0x1F100
+    - 0x1F1FF
+- Enclosed Ideographic Supplement
+    - 0x1F200
+    - 0x1F2FF
+- Miscellaneous Symbols And Pictographs
+    - 0x1F300
+    - 0x1F5FF
+- Emoticons
+    - 0x1F600
+    - 0x1F64F
+- Transport And Map Symbols
+    - 0x1F680
+    - 0x1F6FF
+- Alchemical Symbols
+    - 0x1F700
+    - 0x1F77F
+- CJK Unified Ideographs Extension B
+    - 0x20000
+    - 0x2a6df
+- CJK Unified Ideographs Extension C
+    - 0x2a700
+    - 0x2b73f
+- CJK Unified Ideographs Extension D
+    - 0x2b740
+    - 0x2b81f
+- CJK Compatibility Ideographs Supplement
+    - 0x2f800
+    - 0x2fa1f

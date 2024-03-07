@@ -1,0 +1,15 @@
+StartChar: triagup
+Encoding: 9650 9650 649
+Width: 1000
+GlyphClass: 2
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+500 759 m 1,0,-1
+ 898 55 l 1,1,-1
+ 102 55 l 1,2,-1
+ 500 759 l 1,0,-1
+EndSplineSet
+Validated: 1
+EndChar

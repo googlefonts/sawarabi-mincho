@@ -36,3 +36,6 @@ Thumbs.db
 *(Otomatik Kaydedildi).*
 *（自动存储）.*
 *（已自動儲存）.*
+=======
+*.swp
+*.pyc

@@ -1,0 +1,19 @@
+StartChar: gravecomb
+Encoding: 768 768 450
+Width: 270
+GlyphClass: 2
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+119 948 m 1,0,-1
+ 240 786 l 1,1,-1
+ 202 786 l 1,2,-1
+ 43 890 l 1,3,4
+ 30 907 30 907 30 922 c 128,-1,5
+ 30 937 30 937 40.5 951 c 128,-1,6
+ 51 965 51 965 70.5 965 c 128,-1,7
+ 90 965 90 965 119 948 c 1,0,-1
+EndSplineSet
+Validated: 1
+EndChar

@@ -1,0 +1,19 @@
+StartChar: lacute
+Encoding: 314 314 252
+Width: 260
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+326 920 m 1,0,-1
+ 148 794 l 1,1,-1
+ 69 794 l 1,2,-1
+ 181 920 l 1,3,-1
+ 326 920 l 1,0,-1
+84 740 m 1,4,-1
+ 176 740 l 1,5,-1
+ 176 -3 l 1,6,-1
+ 84 -3 l 1,7,-1
+ 84 740 l 1,4,-1
+EndSplineSet
+EndChar
