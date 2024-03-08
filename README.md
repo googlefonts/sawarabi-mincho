@@ -3,13 +3,9 @@
 [![][Fontbakery]](https://googlefonts.github.io/sawarabi-mincho/fontbakery/fontbakery-report.html)
 [![][Universal]](https://googlefonts.github.io/sawarabi-mincho/fontbakery/fontbakery-report.html)
 [![][GF Profile]](https://googlefonts.github.io/sawarabi-mincho/fontbakery/fontbakery-report.html)
-[![][Shaping]](https://googlefonts.github.io/sawarabi-mincho/fontbakery/fontbakery-report.html)
 
 [Fontbakery]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgooglefonts%2Fsawarabi-mincho%2F%2Fgh-pages%2Fbadges%2Foverall.json
 [GF Profile]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgooglefonts%2Fsawarabi-mincho%2F%2Fgh-pages%2Fbadges%2FGoogleFonts.json
-[Outline Correctness]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgooglefonts%2Fsawarabi-mincho%2F%2Fgh-pages%2Fbadges%2FOut
-lineCorrectnessChecks.json
-[Shaping]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgooglefonts%2Fsawarabi-mincho%2F%2Fgh-pages%2Fbadges%2FShapingChecks.json
 [Universal]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgooglefonts%2Fsawarabi-mincho%2F%2Fgh-pages%2Fbadges%2FUniversal.json
 
 <a href="http://sawarabi-fonts.osdn.jp/">Sawarabi Mincho</a> (さわらび明朝) is a Japanese font by <a href="http://mshio.b.osdn.me/">mshio</a>.
