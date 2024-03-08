@@ -1,8 +1,8 @@
-babelfont @ git+https://github.com/simoncozens/babelfont@0a2fbdd
+babelfont @ git+https://github.com/simoncozens/babelfont@66537a0
 fontmake>=2.4
-gftools[qa]>=0.9.23
+gftools[qa]  @ git+https://github.com/googlefonts/gftools@builder2
 drawbot-skia>=0.4.8
 sh>=1.14.2
 bumpfontversion>=0.2.0
 diffenator2>=0.2.5
-
+chws_tool @ git+https://github.com/googlefonts/chws_tool@allow-outfile
