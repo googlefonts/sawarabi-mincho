@@ -1,4 +1,23 @@
 sources:
   - SawarabiMincho.glyphs
 familyName: Sawarabi Mincho
-removeOutlineOverlaps: false
+recipe:
+  ../fonts/ttf/SawarabiMincho-Regular.ttf:
+  - source: ../fonts/mincho/sawarabi-mincho-medium.sfdir
+  - operation: exec
+    exe: babelfont
+    args: $in SawarabiMincho.glyphs
+  - source: SawarabiMincho.glyphs
+  - operation: exec
+    exe: python3 ../scripts/hotfix-glyphs.py
+    args: $in $out
+  - args: --filter ...  --filter FlattenComponentsFilter --filter DecomposeTransformedComponentsFilter --keep-overlaps
+    operation: buildTTF
+    fontmake_type: -g
+  - args: '--fail-ok '
+    operation: autohint
+  - args: '--include-source-fixes'
+    operation: fix
+  - args: '-o ../fonts/ttf/SawarabiMincho-Regular.ttf $in'
+    operation: exec
+    exe: add-chws
