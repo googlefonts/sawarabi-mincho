@@ -96,6 +96,8 @@ jobs:
         continue-on-error: true
       - name: Copy OFL.txt to artefact directory
         run: cp OFL.txt ${{ env.ZIP_NAME }}/OFL.txt
+      - name: Remove proof/fontbakery stuff from release
+        run: run -rf ${{ env.ZIP_NAME }}/out
       - name: gen release file name
         id: release-name
         shell: bash
@@ -111,4 +113,3 @@ jobs:
           asset_name: ${{ env.RELEASE_ZIP_NAME }}.zip
           tag: ${{ github.ref }}
           overwrite: true
-          body: "Production ready fonts"
