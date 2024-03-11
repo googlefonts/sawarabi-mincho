@@ -96,7 +96,8 @@ jobs:
         run: echo "RELEASE_ZIP_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')-${{github.event.release.tag_name}}" >> $GITHUB_ENV 
       - name: Create release bundle
         # Add OFL.txt (whatever other license file)
-        run: zip -x requirements.txt -x requirements-test.txt -r ../${{ env.RELEASE_ZIP_NAME }}.zip ${{ steps.check_tag.outputs.family}}/ *.txt *.en_us.html
+        # This particular repo has stuff in fonts/ already, we don't want that
+        run: zip -x requirements.txt -x requirements-test.txt -x fonts/gothic -x fonts/mincho -r ../${{ env.RELEASE_ZIP_NAME }}.zip ${{ steps.check_tag.outputs.family}}/ *.txt *.en_us.html
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
