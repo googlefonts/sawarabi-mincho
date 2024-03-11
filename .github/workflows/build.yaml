@@ -61,7 +61,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./out
     - name: Archive artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: ${{ env.ZIP_NAME }}
         path: |
@@ -69,60 +69,18 @@ jobs:
           out
     outputs:
       zip_name: ${{ env.ZIP_NAME }}
-
-  create_release:
-    name: Create GH release from pushed tag
-    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
-    needs:
-      - build
+  
+  release_ready_asset:
+    name: Prepare release artifacts
+    needs: build
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set release body from tag
-        run: |
-          echo 'RELEASE_NOTES<<EOF' >> "$GITHUB_ENV"
-          git show -s --format=%B ${{ github.ref_name }} | tail -n +4  >> "$GITHUB_ENV"
-          echo 'EOF' >> "$GITHUB_ENV"
-      - name: Create release
-        id: release
-        uses: actions/create-release@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref_name }}
-          release_name: ${{ github.ref_name }}
-          body: ${{ env.RELEASE_NOTES }}
-        continue-on-error: true
-    outputs:
-      result: ${{ steps.release.outcome }}
-
-  # When the user triggers a release (either from a tag or from the GitHub UI),
-  # we want to create a release bundle containing the built fonts, plus
-  # license and description (and article, if there is one), and then attach
-  # that to the release.
-  # For case 1 (from a tag), we have to do this only after create_release has
-  # finished. For case 2 (from the GitHub UI), we have to do this on the
-  # "release" event where "type==published". Note that pushing a tag does
-  # not trigger a "release" event! So we have to "need" both "build" and
-  # "create_release", but we use "always()" to make sure that the job runs
-  # in both cases.
-  add_artefacts:
-    name: Add binary artefacts to release
-    needs:
-      - build
-      - create_release
-    if: |
-      always() && (
-        github.event_name == 'release'
-      ) || (
-        (github.event_name == 'push' && contains(github.ref, 'refs/tags/')) && needs.create_release.outputs.result != 'failure'
-      )
-    runs-on: ubuntu-latest
+    if: (github.event_name == 'push' && contains(github.ref, 'refs/tags/')) || (github.event_name == 'release')
     env:
       ZIP_NAME: ${{ needs.build.outputs.zip_name }}
     steps:
+      - uses: actions/checkout@v2
       - name: Download font artefact files
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: ${{ env.ZIP_NAME }}
           path: ${{ env.ZIP_NAME }}
@@ -143,15 +101,55 @@ jobs:
       - name: gen release file name (if it's a tag)
         if: github.event_name != 'release'
         shell: bash
-        # Set the archive name to repo name + "-" + release tag name e.g "MavenPro-v1.234"
         run: echo "RELEASE_ZIP_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')-${{github.ref_name}}" >> $GITHUB_ENV 
       - name: Create release bundle
         run: mv ${{ env.ZIP_NAME }} ${{ env.RELEASE_ZIP_NAME }}; zip -r ${{ env.RELEASE_ZIP_NAME }}.zip ${{ env.RELEASE_ZIP_NAME }}
-      - name: Upload binaries to release
-        uses: svenstaro/upload-release-action@v2
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ${{ env.RELEASE_ZIP_NAME }}.zip
-          asset_name: ${{ env.RELEASE_ZIP_NAME }}.zip
-          tag: ${{ github.ref }}
-          overwrite: true
+          name: release-artifact
+          path: ${{ env.RELEASE_ZIP_NAME }}.zip
+
+  # create_release:
+  #   name: Create GH release from pushed tag
+  #   if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+  #   needs:
+  #     - build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Create release
+  #       id: release
+  #       run: git show -s --format=%B ${{ github.ref_name }} | tail -n +4 | gh release create ${{ github.ref_name }} -t ${{ github.ref_name }} -F -
+  #       continue-on-error: true
+  #   outputs:
+  #     result: ${{ steps.release.outcome }}
+
+  # # When the user triggers a release (either from a tag or from the GitHub UI),
+  # # we want to create a release bundle containing the built fonts, plus
+  # # license and description (and article, if there is one), and then attach
+  # # that to the release.
+  # # For case 1 (from a tag), we have to do this only after create_release has
+  # # finished. For case 2 (from the GitHub UI), we have to do this on the
+  # # "release" event where "type==published". Note that pushing a tag does
+  # # not trigger a "release" event! So we have to "need" both "build" and
+  # # "create_release", but we use "always()" to make sure that the job runs
+  # # in both cases.
+  # add_artefacts:
+  #   name: Add binary artefacts to release
+  #   needs:
+  #     - build
+  #     - create_release
+  #   if: |
+  #     always() && (
+  #       github.event_name == 'release'
+  #     ) || (
+  #       (github.event_name == 'push' && contains(github.ref, 'refs/tags/')) && needs.create_release.outputs.result != 'failure'
+  #     )
+  #     - name: Upload binaries to release
+  #       uses: svenstaro/upload-release-action@v2
+  #       with:
+  #         repo_token: ${{ secrets.GITHUB_TOKEN }}
+  #         file: ${{ env.RELEASE_ZIP_NAME }}.zip
+  #         asset_name: ${{ env.RELEASE_ZIP_NAME }}.zip
+  #         tag: ${{ github.ref }}
+  #         overwrite: true
