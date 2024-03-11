@@ -95,12 +95,22 @@ jobs:
   # we want to create a release bundle containing the built fonts, plus
   # license and description (and article, if there is one), and then attach
   # that to the release.
-  # Github produces three actions runs on release: released, created, and published.
-  # We need to hook into "published"
+  # For case 1 (from a tag), we have to do this only after create_release has
+  # finished. For case 2 (from the GitHub UI), we have to do this on the
+  # "release" event where "type==published". Note that pushing a tag does
+  # not trigger a "release" event! So we have to "need" both "build" and
+  # "create_release", but we use "always()" to make sure that the job runs
+  # in both cases.
   release:
-    if: github.event_name == 'release'
     needs:
       - build
+      - create_release
+    if: |
+      always() && (
+        github.event_name == 'release' || (github.event_name == 'push' && contains(github.ref, 'refs/tags/'))
+      ) && (
+        contains(needs.*.result, 'success') && !contains(needs.*.result, 'failure')
+      )
     runs-on: ubuntu-latest
     env:
       ZIP_NAME: ${{ needs.build.outputs.zip_name }}
