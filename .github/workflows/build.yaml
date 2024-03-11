@@ -70,8 +70,8 @@ jobs:
     outputs:
       zip_name: ${{ env.ZIP_NAME }}
   
-  release_ready_asset:
-    name: Prepare release artifacts
+  release:
+    name: Create and populate release
     needs: build
     runs-on: ubuntu-latest
     if: (github.event_name == 'push' && contains(github.ref, 'refs/tags/')) || (github.event_name == 'release')
@@ -104,52 +104,17 @@ jobs:
         run: echo "RELEASE_ZIP_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')-${{github.ref_name}}" >> $GITHUB_ENV 
       - name: Create release bundle
         run: mv ${{ env.ZIP_NAME }} ${{ env.RELEASE_ZIP_NAME }}; zip -r ${{ env.RELEASE_ZIP_NAME }}.zip ${{ env.RELEASE_ZIP_NAME }}
-      - name: Archive artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: release-artifact
-          path: ${{ env.RELEASE_ZIP_NAME }}.zip
-
-  # create_release:
-  #   name: Create GH release from pushed tag
-  #   if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
-  #   needs:
-  #     - build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Create release
-  #       id: release
-  #       run: git show -s --format=%B ${{ github.ref_name }} | tail -n +4 | gh release create ${{ github.ref_name }} -t ${{ github.ref_name }} -F -
-  #       continue-on-error: true
-  #   outputs:
-  #     result: ${{ steps.release.outcome }}
-
-  # # When the user triggers a release (either from a tag or from the GitHub UI),
-  # # we want to create a release bundle containing the built fonts, plus
-  # # license and description (and article, if there is one), and then attach
-  # # that to the release.
-  # # For case 1 (from a tag), we have to do this only after create_release has
-  # # finished. For case 2 (from the GitHub UI), we have to do this on the
-  # # "release" event where "type==published". Note that pushing a tag does
-  # # not trigger a "release" event! So we have to "need" both "build" and
-  # # "create_release", but we use "always()" to make sure that the job runs
-  # # in both cases.
-  # add_artefacts:
-  #   name: Add binary artefacts to release
-  #   needs:
-  #     - build
-  #     - create_release
-  #   if: |
-  #     always() && (
-  #       github.event_name == 'release'
-  #     ) || (
-  #       (github.event_name == 'push' && contains(github.ref, 'refs/tags/')) && needs.create_release.outputs.result != 'failure'
-  #     )
-  #     - name: Upload binaries to release
-  #       uses: svenstaro/upload-release-action@v2
-  #       with:
-  #         repo_token: ${{ secrets.GITHUB_TOKEN }}
-  #         file: ${{ env.RELEASE_ZIP_NAME }}.zip
-  #         asset_name: ${{ env.RELEASE_ZIP_NAME }}.zip
-  #         tag: ${{ github.ref }}
-  #         overwrite: true
+      # There are two ways a release can be created: either by pushing a tag, or by
+      # creating a release from the GitHub UI. Pushing a tag does not automatically
+      # create a release, so we have to do that ourselves. However, creating a
+      # release from the GitHub UI *does* push a tag, and we don't want to create
+      # a new release in that case because one already exists!
+      - name: Check for release
+        id: create_release
+        run: |
+          if ! gh release view ${{ github.ref_name }}; then
+          git show -s --format=%B ${{ github.ref_name }} | tail -n +4 | gh release create ${{ github.ref_name }} -t ${{ github.ref_name }} -F -
+          fi
+      - name: Populate release
+        run: |
+          gh release upload ${{ github.ref_name }} ${{ env.RELEASE_ZIP_NAME }}.zip --clobber
