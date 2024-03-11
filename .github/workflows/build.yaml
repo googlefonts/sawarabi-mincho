@@ -119,3 +119,6 @@ jobs:
       - name: Populate release
         run: |
           gh release upload ${{ github.ref_name }} ${{ env.RELEASE_ZIP_NAME }}.zip --clobber
+      - name: Set release live
+        run: |
+          gh release edit ${{ github.ref_name }} --draft=false
