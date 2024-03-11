@@ -27,18 +27,20 @@ jobs:
       shell: bash
       # Set the archive name to repo name + "-assets" e.g "MavenPro-assets"
       run: echo "ZIP_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')-fonts" >> $GITHUB_ENV
-      # If a new release is cut, use the release tag to auto-bump the source files
-    - name: Bump release
-      if: github.event_name == 'release'
-      run: |
-        . venv/bin/activate
-        SRCS=$(yq e ".sources[]" sources/config.yaml)
-        TAG_NAME=${GITHUB_REF/refs\/tags\//}
-        echo "Bumping $SRCS to $TAG_NAME"
-        for src in $SRCS
-        do
-          bumpfontversion sources/$src --new-version $TAG_NAME;
-        done
+
+    # If a new release is cut, use the release tag to auto-bump the source files
+    # - name: Bump release
+    #   if: github.event_name == 'release'
+    #   run: |
+    #     . venv/bin/activate
+    #     SRCS=$(yq e ".sources[]" sources/config.yaml)
+    #     TAG_NAME=${GITHUB_REF/refs\/tags\//}
+    #     echo "Bumping $SRCS to $TAG_NAME"
+    #     for src in $SRCS
+    #     do
+    #       bumpfontversion sources/$src --new-version $TAG_NAME;
+    #     done
+
     - name: Build font
       run: make build
     - name: Check with fontbakery
@@ -63,10 +65,13 @@ jobs:
           out
     outputs:
       zip_name: ${{ env.ZIP_NAME }}
+
+  # When the user triggers a release (either from a tag or from the GitHub UI),
+  # we want to create a release bundle containing the built fonts, plus
+  # license and description (and article, if there is one), and then attach
+  # that to the release.
   release:
-    # only run if the commit is tagged...
     if: github.event_name == 'release'
-    # ... and it builds successfully
     needs:
       - build
     runs-on: ubuntu-latest
@@ -74,19 +79,30 @@ jobs:
       ZIP_NAME: ${{ needs.build.outputs.zip_name }}
     steps:
       - uses: actions/checkout@v2
-      - name: Download artefact files
+      - name: Download font artefact files
         uses: actions/download-artifact@v2
         with:
           name: ${{ env.ZIP_NAME }}
           path: ${{ env.ZIP_NAME }}
-      - name: Zip files
-        run: zip -r ${{ env.ZIP_NAME }}.zip ${{ env.ZIP_NAME }}
+      - name: Find a DESCRIPTION.en_us.html
+        run: cp documentation/DESCRIPTION.en_us.html ./DESCRIPTION.en_us.html
+      - name: Find an ARTICLE.en_us.html
+        run: cp documentation/ARTICLE.en_us.html ./ARTICLE.en_us.html
+        continue-on-error: true
+      - name: gen release file name
+        id: release-name
+        shell: bash
+        # Set the archive name to repo name + "-" + release tag name e.g "MavenPro-v1.234"
+        run: echo "RELEASE_ZIP_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')-${{github.event.release.tag_name}}" >> $GITHUB_ENV 
+      - name: Create release bundle
+        # Add OFL.txt (whatever other license file)
+        run: zip -x requirements.txt -x requirements-test.txt -r ../${{ env.RELEASE_ZIP_NAME }}.zip ${{ steps.check_tag.outputs.family}}/ *.txt *.en_us.html
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ${{ env.ZIP_NAME }}.zip
-          asset_name: ${{ env.ZIP_NAME }}.zip
+          file: ${{ env.RELEASE_ZIP_NAME }}.zip
+          asset_name: ${{ env.RELEASE_ZIP_NAME }}.zip
           tag: ${{ github.ref }}
           overwrite: true
           body: "Production ready fonts"
