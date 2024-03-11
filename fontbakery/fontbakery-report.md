@@ -112,14 +112,14 @@ fontbakery version: 0.11.2
 
 | Language | FAIL messages |
 | :--- | :--- |
-| cy_Latn (Welsh) | Shaper didn't attach gravecomb to y |
+| cy_Latn (Welsh) | Shaper didn't attach uni0308 to w |
 |  ^  | Shaper didn't attach acutecomb to W |
-|  ^  | Shaper didn't attach gravecomb to w |
-|  ^  | Shaper didn't attach uni0308 to W |
 |  ^  | Shaper didn't attach gravecomb to Y |
+|  ^  | Shaper didn't attach gravecomb to w |
 |  ^  | Shaper didn't attach gravecomb to W |
-|  ^  | Shaper didn't attach uni0308 to w |
+|  ^  | Shaper didn't attach gravecomb to y |
 |  ^  | Shaper didn't attach acutecomb to w |
+|  ^  | Shaper didn't attach uni0308 to W |
 | de_Latn (German) | Some base glyphs were missing: ẞ |
 |  ^  | Shaper produced a .notdef |
 | nl_Latn (Dutch) | Shaper didn't attach acutecomb to J |
@@ -148,11 +148,11 @@ fontbakery version: 0.11.2
     definitions.
 
  * U+02CB MODIFIER LETTER GRAVE ACCENT: not included in any glyphset definition
- * U+0302 COMBINING CIRCUMFLEX ACCENT: try adding one of: coptic, math, tifinagh, cherokee
+ * U+0302 COMBINING CIRCUMFLEX ACCENT: try adding one of: tifinagh, cherokee, math, coptic
  * U+0306 COMBINING BREVE: try adding one of: old-permic, tifinagh
- * U+0307 COMBINING DOT ABOVE: try adding one of: tai-le, old-permic, coptic, canadian-aboriginal, syriac, tifinagh, math, malayalam
+ * U+0307 COMBINING DOT ABOVE: try adding one of: malayalam, syriac, coptic, tai-le, canadian-aboriginal, tifinagh, old-permic, math
  * U+030A COMBINING RING ABOVE: try adding syriac
- * U+030B COMBINING DOUBLE ACUTE ACCENT: try adding one of: osage, cherokee
+ * U+030B COMBINING DOUBLE ACUTE ACCENT: try adding one of: cherokee, osage
  * U+030C COMBINING CARON: try adding one of: tai-le, cherokee
  * U+030F COMBINING DOUBLE GRAVE ACCENT: not included in any glyphset definition
  * U+0311 COMBINING INVERTED BREVE: try adding coptic
@@ -178,15 +178,15 @@ fontbakery version: 0.11.2
  * U+231A WATCH: try adding symbols
  * U+2326 ERASE TO THE RIGHT: try adding symbols
  * U+232B ERASE TO THE LEFT: try adding symbols
- * U+2460 CIRCLED DIGIT ONE: try adding one of: yi, mongolian, symbols
- * U+2461 CIRCLED DIGIT TWO: try adding one of: yi, mongolian, symbols
- * U+2462 CIRCLED DIGIT THREE: try adding one of: yi, mongolian, symbols
- * U+2463 CIRCLED DIGIT FOUR: try adding one of: yi, mongolian, symbols
- * U+2464 CIRCLED DIGIT FIVE: try adding one of: yi, mongolian, symbols
- * U+2465 CIRCLED DIGIT SIX: try adding one of: yi, mongolian, symbols
- * U+2466 CIRCLED DIGIT SEVEN: try adding one of: yi, mongolian, symbols
- * U+2467 CIRCLED DIGIT EIGHT: try adding one of: yi, mongolian, symbols
- * U+2468 CIRCLED DIGIT NINE: try adding one of: yi, mongolian, symbols
+ * U+2460 CIRCLED DIGIT ONE: try adding one of: mongolian, yi, symbols
+ * U+2461 CIRCLED DIGIT TWO: try adding one of: mongolian, yi, symbols
+ * U+2462 CIRCLED DIGIT THREE: try adding one of: mongolian, yi, symbols
+ * U+2463 CIRCLED DIGIT FOUR: try adding one of: mongolian, yi, symbols
+ * U+2464 CIRCLED DIGIT FIVE: try adding one of: mongolian, yi, symbols
+ * U+2465 CIRCLED DIGIT SIX: try adding one of: mongolian, yi, symbols
+ * U+2466 CIRCLED DIGIT SEVEN: try adding one of: mongolian, yi, symbols
+ * U+2467 CIRCLED DIGIT EIGHT: try adding one of: mongolian, yi, symbols
+ * U+2468 CIRCLED DIGIT NINE: try adding one of: mongolian, yi, symbols
  * U+2500 BOX DRAWINGS LIGHT HORIZONTAL: not included in any glyphset definition
  * U+2501 BOX DRAWINGS HEAVY HORIZONTAL: not included in any glyphset definition
  * U+2502 BOX DRAWINGS LIGHT VERTICAL: not included in any glyphset definition
@@ -369,7 +369,7 @@ fontbakery version: 0.11.2
  * U+25C9 FISHEYE: try adding symbols
  * U+25CA LOZENGE: try adding one of: symbols, math
  * U+25CB WHITE CIRCLE: try adding symbols
- * U+25CC DOTTED CIRCLE: try adding one of: javanese, warang-citi, gunjala-gondi, khojki, khmer, malayalam, limbu, tagalog, hebrew, armenian, modi, bengali, caucasian-albanian, cham, ahom, meetei-mayek, canadian-aboriginal, manichaean, mandaic, tagbanwa, duployan, tibetan, osage, coptic, brahmi, elbasan, nko, thai, sinhala, rejang, hanifi-rohingya, marchen, soyombo, tirhuta, bhaiksuki, lao, kharoshthi, tai-le, chakma, old-permic, thaana, gujarati, mongolian, zanabazar-square, mahajani, gurmukhi, takri, symbols, tamil, pahawh-hmong, wancho, telugu, miao, yi, newa, grantha, masaram-gondi, kaithi, new-tai-lue, tai-viet, bassa-vah, saurashtra, mende-kikakui, batak, adlam, tifinagh, sharada, phags-pa, syloti-nagri, kannada, siddham, tai-tham, syriac, buhid, dogra, lepcha, myanmar, sundanese, buginese, balinese, khudawadi, oriya, devanagari, sogdian, music, kayah-li, math, hanunoo, psalter-pahlavi
+ * U+25CC DOTTED CIRCLE: try adding one of: mahajani, sharada, mende-kikakui, new-tai-lue, zanabazar-square, kannada, malayalam, myanmar, devanagari, caucasian-albanian, marchen, ahom, kaithi, elbasan, syloti-nagri, kayah-li, bhaiksuki, masaram-gondi, tai-le, limbu, pahawh-hmong, tai-viet, oriya, khojki, telugu, syriac, javanese, khudawadi, tagalog, khmer, buhid, phags-pa, grantha, hanifi-rohingya, sogdian, mongolian, balinese, lepcha, symbols, adlam, takri, lao, old-permic, saurashtra, tai-tham, yi, tagbanwa, brahmi, duployan, cham, wancho, sinhala, thaana, armenian, osage, mandaic, meetei-mayek, tibetan, newa, nko, bassa-vah, gunjala-gondi, gurmukhi, sundanese, kharoshthi, dogra, psalter-pahlavi, canadian-aboriginal, batak, warang-citi, miao, manichaean, thai, gujarati, chakma, coptic, buginese, tifinagh, bengali, rejang, siddham, tirhuta, music, hebrew, tamil, soyombo, modi, hanunoo, math
  * U+25CD CIRCLE WITH VERTICAL FILL: try adding symbols
  * U+25CE BULLSEYE: try adding symbols
  * U+25CF BLACK CIRCLE: try adding symbols
@@ -476,9 +476,9 @@ fontbakery version: 0.11.2
  * U+266A EIGHTH NOTE: try adding one of: music, symbols
  * U+266B BEAMED EIGHTH NOTES: try adding one of: music, symbols
  * U+266C BEAMED SIXTEENTH NOTES: try adding one of: music, symbols
- * U+266D MUSIC FLAT SIGN: try adding one of: music, symbols, math
- * U+266E MUSIC NATURAL SIGN: try adding one of: music, symbols, math
- * U+266F MUSIC SHARP SIGN: try adding one of: music, symbols, math
+ * U+266D MUSIC FLAT SIGN: try adding one of: symbols, music, math
+ * U+266E MUSIC NATURAL SIGN: try adding one of: symbols, music, math
+ * U+266F MUSIC SHARP SIGN: try adding one of: symbols, music, math
  * U+2672 UNIVERSAL RECYCLING SYMBOL: try adding symbols
  * U+267B BLACK UNIVERSAL RECYCLING SYMBOL: try adding symbols
  * U+267C RECYCLED PAPER SYMBOL: try adding symbols
@@ -4216,7 +4216,7 @@ The following glyphs do not have the recommended number of contours:
 The following math glyphs have a different width, though:
 
 Width = 525:
-greater, equal, less
+less, equal, greater
 
 Width = 529:
 logicalnot
@@ -7802,7 +7802,7 @@ The dot of soft dotted characters _should_ disappear in other cases, for example
 
 Your font fully covers the following languages that require the soft-dotted feature: Lithuanian (Latn, 2,357,094 speakers). 
 
-Your font does *not* cover the following languages that require the soft-dotted feature: Dii (Latn, 71,000 speakers), Ngbaka (Latn, 1,020,000 speakers), Ekpeye (Latn, 226,000 speakers), Avokaya (Latn, 100,000 speakers), Mfumte (Latn, 79,000 speakers), Gulay (Latn, 250,478 speakers), Makaa (Latn, 221,000 speakers), Dutch (Latn, 31,709,104 speakers), Ukrainian (Cyrl, 29,273,587 speakers), Southern Kisi (Latn, 360,000 speakers), Zapotec (Latn, 490,000 speakers), Ejagham (Latn, 120,000 speakers), Koonzime (Latn, 40,000 speakers), Ma’di (Latn, 584,000 speakers), Basaa (Latn, 332,940 speakers), Fur (Latn, 1,230,163 speakers), Cicipu (Latn, 44,000 speakers), Belarusian (Cyrl, 10,064,517 speakers), Ebira (Latn, 2,200,000 speakers), Mundani (Latn, 34,000 speakers), Nzakara (Latn, 50,000 speakers), Ijo, Southeast (Latn, 2,471,000 speakers), Sar (Latn, 500,000 speakers), South Central Banda (Latn, 244,000 speakers), Aghem (Latn, 38,843 speakers), Kom (Latn, 360,685 speakers), Bete-Bendi (Latn, 100,000 speakers), Navajo (Latn, 166,319 speakers), Igbo (Latn, 27,823,640 speakers), Yala (Latn, 200,000 speakers), Lugbara (Latn, 2,200,000 speakers), Dan (Latn, 1,099,244 speakers), Bafut (Latn, 158,146 speakers), Mango (Latn, 77,000 speakers), Kpelle, Guinea (Latn, 622,000 speakers), Nateni (Latn, 100,000 speakers). [code: soft-dotted]
+Your font does *not* cover the following languages that require the soft-dotted feature: Ekpeye (Latn, 226,000 speakers), South Central Banda (Latn, 244,000 speakers), Mfumte (Latn, 79,000 speakers), Ijo, Southeast (Latn, 2,471,000 speakers), Dii (Latn, 71,000 speakers), Southern Kisi (Latn, 360,000 speakers), Ma’di (Latn, 584,000 speakers), Cicipu (Latn, 44,000 speakers), Yala (Latn, 200,000 speakers), Basaa (Latn, 332,940 speakers), Nzakara (Latn, 50,000 speakers), Ebira (Latn, 2,200,000 speakers), Navajo (Latn, 166,319 speakers), Mundani (Latn, 34,000 speakers), Bafut (Latn, 158,146 speakers), Dutch (Latn, 31,709,104 speakers), Aghem (Latn, 38,843 speakers), Kom (Latn, 360,685 speakers), Belarusian (Cyrl, 10,064,517 speakers), Mango (Latn, 77,000 speakers), Nateni (Latn, 100,000 speakers), Ngbaka (Latn, 1,020,000 speakers), Ukrainian (Cyrl, 29,273,587 speakers), Sar (Latn, 500,000 speakers), Avokaya (Latn, 100,000 speakers), Gulay (Latn, 250,478 speakers), Koonzime (Latn, 40,000 speakers), Igbo (Latn, 27,823,640 speakers), Ejagham (Latn, 120,000 speakers), Kpelle, Guinea (Latn, 622,000 speakers), Makaa (Latn, 221,000 speakers), Fur (Latn, 1,230,163 speakers), Zapotec (Latn, 490,000 speakers), Bete-Bendi (Latn, 100,000 speakers), Lugbara (Latn, 2,200,000 speakers), Dan (Latn, 1,099,244 speakers). [code: soft-dotted]
 </div></details><br></div></details>
 
 ### Summary
