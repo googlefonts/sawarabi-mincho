@@ -1,6 +1,9 @@
 name: Build font and specimen
 
-on: [push, release]
+on:
+  push:
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -70,6 +73,8 @@ jobs:
   # we want to create a release bundle containing the built fonts, plus
   # license and description (and article, if there is one), and then attach
   # that to the release.
+  # Github produces three actions runs on release: released, created, and published.
+  # We need to hook into "published"
   release:
     if: github.event_name == 'release'
     needs:
