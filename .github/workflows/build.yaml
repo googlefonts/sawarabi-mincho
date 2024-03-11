@@ -89,20 +89,20 @@ jobs:
         with:
           name: ${{ env.ZIP_NAME }}
           path: ${{ env.ZIP_NAME }}
-      - name: Find a DESCRIPTION.en_us.html
-        run: cp documentation/DESCRIPTION.en_us.html ./DESCRIPTION.en_us.html
-      - name: Find an ARTICLE.en_us.html
-        run: cp documentation/ARTICLE.en_us.html ./ARTICLE.en_us.html
+      - name: Copy DESCRIPTION.en_us.html to artefact directory
+        run: cp documentation/DESCRIPTION.en_us.html ${{ env.ZIP_NAME }}/DESCRIPTION.en_us.html
+      - name: Copy ARTICLE.en_us.html to artefact directory
+        run: cp documentation/ARTICLE.en_us.html ${{ env.ZIP_NAME }}/ARTICLE.en_us.html
         continue-on-error: true
+      - name: Copy OFL.txt to artefact directory
+        run: cp OFL.txt ${{ env.ZIP_NAME }}/OFL.txt
       - name: gen release file name
         id: release-name
         shell: bash
         # Set the archive name to repo name + "-" + release tag name e.g "MavenPro-v1.234"
         run: echo "RELEASE_ZIP_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')-${{github.event.release.tag_name}}" >> $GITHUB_ENV 
       - name: Create release bundle
-        # Add OFL.txt (whatever other license file)
-        # This particular repo has stuff in fonts/ already, we don't want that
-        run: zip -x requirements.txt -x requirements-test.txt -x fonts/gothic -x fonts/mincho -r ../${{ env.RELEASE_ZIP_NAME }}.zip fonts/ *.txt *.en_us.html
+        run: mv ${{ env.ZIP_NAME }} ${{ env.RELEASE_ZIP_NAME }}; zip -r ${{ env.RELEASE_ZIP_NAME }}.zip ${{ env.RELEASE_ZIP_NAME }}
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
