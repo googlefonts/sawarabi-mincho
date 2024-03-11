@@ -133,11 +133,16 @@ jobs:
         run: cp OFL.txt ${{ env.ZIP_NAME }}/OFL.txt
       - name: Remove proof/fontbakery stuff from release
         run: rm -rf ${{ env.ZIP_NAME }}/out
-      - name: gen release file name
-        id: release-name
+      - name: gen release file name (if it's a release)
+        if: github.event_name == 'release'
         shell: bash
         # Set the archive name to repo name + "-" + release tag name e.g "MavenPro-v1.234"
         run: echo "RELEASE_ZIP_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')-${{github.event.release.tag_name}}" >> $GITHUB_ENV 
+      - name: gen release file name (if it's a tag)
+        if: github.event_name != 'release'
+        shell: bash
+        # Set the archive name to repo name + "-" + release tag name e.g "MavenPro-v1.234"
+        run: echo "RELEASE_ZIP_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')-${{github.ref_name}}" >> $GITHUB_ENV 
       - name: Create release bundle
         run: mv ${{ env.ZIP_NAME }} ${{ env.RELEASE_ZIP_NAME }}; zip -r ${{ env.RELEASE_ZIP_NAME }}.zip ${{ env.RELEASE_ZIP_NAME }}
       - name: Upload binaries to release
