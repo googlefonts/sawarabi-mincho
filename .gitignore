@@ -3,13 +3,11 @@ venv
 venv-test
 build.stamp
 proof
-fonts
 node_modules
 package-lock.json
 package.json
 master_ufo
 instance_ufo
-
 # OS generated files #
 ######################
 .DS_Store
@@ -39,3 +37,5 @@ Thumbs.db
 =======
 *.swp
 *.pyc
+*.glyphs
+Sawarabi Mincho-Medium-ext.sfdir
