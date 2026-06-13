@@ -3,7 +3,7 @@ venv
 venv-test
 build.stamp
 proof
-fonts
+
 node_modules
 package-lock.json
 package.json
@@ -39,3 +39,5 @@ Thumbs.db
 =======
 *.swp
 *.pyc
+*.ufo
+*.glyphs
