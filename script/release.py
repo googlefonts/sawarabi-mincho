@@ -129,7 +129,7 @@ class ReleaseConfig:
     if not os.path.isfile(path):
       raise 'The specified path is not a file'
 
-    self.conf = yaml.load(open(path).read())
+    self.conf = yaml.safe_load(open(path).read())
     self.rootdir = os.path.abspath(self.conf['rootdir'])
 
   def get_workdir(self, style):
